@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.projectcoffee.product.mapper.ProductMapper">
+    <select id="selectProductList"
+            parameterType="Criteria"
+            resultType="Product">
+        SELECT * FROM PRODUCT
+        WHERE STORE_ID LIKE '%'|| #{searchKeyword} ||'%'
+        OFFSET #{offset} ROWS
+            FETCH NEXT #{size} ROWS ONLY
+    </select>
+
+    <select id="selectProductListTotCnt"
+            parameterType="Criteria"
+            resultType="int">
+        SELECT COUNT(*) FROM PRODUCT
+        WHERE STORE_ID LIKE '%' || #{searchKeyword} || '%'
+    </select>
+    <insert id="insert"
+            parameterType="product">
+        INSERT INTO PRODUCT(UUID,STORE_ID,CATEGORY_ID,DESCRIPTION,PRICE,STOCK_QUANTITY,IMAGE_URL,IS_AVAILABLE,PRODUCT_TYPE,CREATED_DATE)
+        VALUES(#{uuid},#{stoerId},#{categoryId},#{description},#{price},#{stockQuantity},#{imageUrl},#{isAvailable},#{producttype},SYSDATE)
+    </insert>
+    <delete id="delete"
+            parameterType="String">
+        DELETE PRODUCT WHERE UUID=#{uuid}
+    </delete>
+</mapper>
+
+
