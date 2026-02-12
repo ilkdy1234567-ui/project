@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.projectcoffee.menu.mapper.MenuMapper">
+
+    <select id="selectMenuList"
+            parameterType="Criteria"
+            resultType="Menu">
+        SELECT * FROM MENU
+        WHERE P_NAME LIKE '%'|| #{searchKeyword} ||'%'
+        OFFSET #{offset} ROWS
+            FETCH NEXT #{size} ROWS ONLY
+    </select>
+
+    <select id="selectMenuListTotCnt"
+            parameterType="Criteria"
+            resultType="int">
+        SELECT COUNT(*) FROM MENU
+        WHERE P_NAME LIKE '%' || #{searchKeyword} || '%'
+    </select>
+    <insert id="insert"
+            parameterType="Menu">
+        INSERT INTO PRODUCT(UUID,P_NAME,DESCRIPTION,PRICE,IMG_URL,IS_AVAILABLE,C_DATE,QUANTITY,CATEGORY_ID)
+        VALUES(#{pUuid},#{pName},#{description},#{price},#{imgUrl},#{isAvailable},SYSDATE,#{quantity},#{categoryId})
+    </insert>
+    <delete id="delete"
+            parameterType="String">
+        DELETE MENU WHERE P_UUID=#{uuid}
+    </delete>
+</mapper>
+
+
