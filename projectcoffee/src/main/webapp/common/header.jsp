@@ -1,73 +1,63 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: khuser
+  Date: 26. 2. 12.
+  Time: 오후 5:59
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<nav class="bg-gray-100 text-gray-800">
-    <div class="bg-blue-700 text-white flex justify-between border-b items-center py-1 px-5">
-        <div class="text font-bold">simple-coding</div>
-        <div class="flex items-center gap-4">
-            <button
-                    aria-label="햄버거 메뉴 열기/닫기"
-            >
-                ☰
-            </button>
-        </div>
-    </div>
-    <div class="flex flex-col gap-4 transition-all duration-700 md:flex-row md:justify-between md:items-center
-        max-h-1000">
-        <ul class="flex flex-col gap-4 pl-5 py-2 md:flex-row">
-            <li>
-                <a class="hover:underline" href="/">홈</a>
-            </li>
-            <li class="group md:relative">
-                <a class="hover:underline" href="#">
-                    부서
-                </a>
-                <ul class="md:absolute md:top-full md:left-0 md:opacity-0 md:invisible md:group-hover:opacity-100
-            md:group-hover:visible md:transition-all md:bg-white md:text-black md:w-42 md:p-2 md:rounded">
-                    <li class="m-2"><a class="hover:underline" href="/dept">부서조회</a></li>
-                    <li class="m-2"><a class="hover:underline" href="/dept/addition">부서추가</a></li>
-                </ul>
-            </li>
-            <li class="group md:relative">
-                <a class="hover:underline" href="#">
-                    사원
-                </a>
-                <ul class="md:absolute md:top-full md:left-0 md:opacity-0 md:invisible md:group-hover:opacity-100
-            md:group-hover:visible md:transition-all md:bg-white md:text-black md:w-42 md:p-2 md:rounded">
-                    <li class="m-2"><a class="hover:underline" href="/emp">사원조회(퀴즈)</a></li>
-                    <li class="m-2"><a class="hover:underline" href="/emp/addition">사원추가(퀴즈)</a></li>
-                </ul>
-            </li>
-            <li class="group md:relative">
-                <a class="hover:underline" href="#">
-                    faq
-                </a>
-                <ul class="md:absolute md:top-full md:left-0 md:opacity-0 md:invisible md:group-hover:opacity-100
-            md:group-hover:visible md:transition-all md:bg-white md:text-black md:w-42 md:p-2 md:rounded">
-                    <li class="m-2"><a class="hover:underline" href="/faq">faq조회(마무리퀴즈)</a></li>
-                    <li class="m-2"><a class="hover:underline" href="/faq/addition">faq추가(마무리퀴즈)</a></li>
-                </ul>
-            </li>
-            <li class="group md:relative">
-                <a class="hover:underline" href="#">
-                    fileDb
-                </a>
-                <ul class="md:absolute md:top-full md:left-0 md:opacity-0 md:invisible md:group-hover:opacity-100
-            md:group-hover:visible md:transition-all md:bg-white md:text-black md:w-42 md:p-2 md:rounded">
-                    <li class="m-2"><a class="hover:underline" href="/fileDb">fileDb</a></li>
-                    <li class="m-2"><a class="hover:underline" href="/fileDb/addition">fileDb추가</a></li>
-                </ul>
-            </li>
-            <li class="group md:relative">
-                <a class="hover:underline" href="#">
-                    gallery
-                </a>
-                <ul class="md:absolute md:top-full md:left-0 md:opacity-0 md:invisible md:group-hover:opacity-100
-            md:group-hover:visible md:transition-all md:bg-white md:text-black md:w-42 md:p-2 md:rounded">
-                    <li class="m-2"><a class="hover:underline" href="/gallery">gallery</a></li>
-                    <li class="m-2"><a class="hover:underline" href="/gallery/addition">gallery추가</a></li>
-                </ul>
-            </li>
-        </ul>
+<nav id="navbar">
+    <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+
+    <ul class="nav-menu">
+        <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="${pageContext.request.contextPath}/brand">여운 스토리</a></div></li>
+        <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="${pageContext.request.contextPath}menu/menu">커피 (Coffee)</a><a href="${pageContext.request.contextPath}menu/beverage">음료 (Beverage)</a><a href="${pageContext.request.contextPath}menu/dessert">디저트 (Dessert)</a></div></li>
+        <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="${pageContext.request.contextPath}menu/shop">원두/드립백</a><a href="${pageContext.request.contextPath}menu/goods">홈카페 굿즈</a></div></li>
+        <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="${pageContext.request.contextPath}/store">매장 찾기</a></div></li>
+        <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="${pageContext.request.contextPath}notice/notice">공지사항</a><a href="${pageContext.request.contextPath}/contact">1:1 문의</a></div></li>
+    </ul>
+
+    <a href="/" class="logo">YEOWUN<span>餘韻</span></a>
+
+    <div class="nav-sns">
+        <div class="sns-box"><i class="fab fa-instagram"></i><span class="sns-tooltip">Instagram</span></div>
+        <div class="sns-box"><i class="fas fa-comment"></i><span class="sns-tooltip">KakaoTalk</span></div>
+        <div class="sns-box"><i class="fab fa-facebook-f"></i><span class="sns-tooltip">Facebook</span></div>
     </div>
 </nav>
+
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-sidebar-close" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
+    <ul>
+        <li>
+            <a href="#" style="cursor: default;">브랜드</a>
+            <div class="mobile-submenu">
+                <a href="#">여운 스토리</a>
+            </div>
+        </li>
+        <li>
+            <a href="#" style="cursor: default;">메뉴</a>
+            <div class="mobile-submenu">
+                <a href="${pageContext.request.contextPath}/menu">커피 (Coffee)</a>
+                <a href="${pageContext.request.contextPath}/beverage">음료 (Beverage)</a>
+                <a href="${pageContext.request.contextPath}/dessert">디저트 (Dessert)</a>
+            </div>
+
+            <div class="mobile-submenu">
+                <a href="${pageContext.request.contextPath}/shop">원두/드립백</a>
+                <a href="${pageContext.request.contextPath}/goods">홈카페 굿즈</a>
+            </div>
+
+            <div class="mobile-submenu">
+                <a href="${pageContext.request.contextPath}/store">매장 찾기</a>
+            </div>
+
+            <div class="mobile-submenu">
+                <a href="${pageContext.request.contextPath}/notice">공지사항</a>
+                <a href="${pageContext.request.contextPath}/contact">1:1 문의</a>
+            </div>
+        </li>
+    </ul>
+</div>

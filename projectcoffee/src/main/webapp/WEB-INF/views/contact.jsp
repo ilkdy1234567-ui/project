@@ -24,71 +24,8 @@
 <body>
 
 <!-- 상단 네비게이션 -->
-<nav id="navbar">
-    <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
-
-    <ul class="nav-menu">
-        <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="${pageContext.request.contextPath}/brand">여운 스토리</a></div></li>
-        <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="${pageContext.request.contextPath}menu/menu">커피 (Coffee)</a><a href="${pageContext.request.contextPath}menu/beverage">음료 (Beverage)</a><a href="${pageContext.request.contextPath}menu/dessert">디저트 (Dessert)</a></div></li>
-        <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="${pageContext.request.contextPath}menu/shop">원두/드립백</a><a href="${pageContext.request.contextPath}menu/goods">홈카페 굿즈</a></div></li>
-        <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="${pageContext.request.contextPath}/store">매장 찾기</a></div></li>
-        <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="${pageContext.request.contextPath}notice/notice">공지사항</a><a href="${pageContext.request.contextPath}/contact">1:1 문의</a></div></li>
-    </ul>
-
-    <a href="/" class="logo">YEOWUN<span>餘韻</span></a>
-
-    <div class="nav-sns">
-        <div class="sns-box"><i class="fab fa-instagram"></i><span class="sns-tooltip">Instagram</span></div>
-        <div class="sns-box"><i class="fas fa-comment"></i><span class="sns-tooltip">KakaoTalk</span></div>
-        <div class="sns-box"><i class="fab fa-facebook-f"></i><span class="sns-tooltip">Facebook</span></div>
-    </div>
-</nav>
-
-<!-- 모바일 사이드바 -->
-<div class="mobile-sidebar" id="mobileSidebar">
-    <div class="mobile-sidebar-close" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
-    <ul>
-        <li>
-            <a href="#" style="cursor: default;">브랜드</a>
-            <div class="mobile-submenu">
-                <a href="./brand.html">여운 스토리</a>
-            </div>
-        </li>
-        <li>
-            <a href="#" style="cursor: default;">메뉴</a>
-            <div class="mobile-submenu">
-                <a href="./menu.html">커피 (Coffee)</a>
-                <a href="./beverage.html">음료 (Beverage)</a>
-                <a href="./dessert.html">디저트 (Dessert)</a>
-            </div>
-        </li>
-        <li>
-            <a href="#" style="cursor: default;">온라인 숍</a>
-            <div class="mobile-submenu">
-                <a href="./shop.html">원두/드립백</a>
-                <a href="./goods.html">홈카페 굿즈</a>
-            </div>
-        </li>
-        <li>
-            <a href="#" style="cursor: default;">매장안내</a>
-            <div class="mobile-submenu">
-                <a href="./store.html">매장 찾기</a>
-            </div>
-        </li>
-        <li>
-            <a href="#" style="cursor: default;">고객지원</a>
-            <div class="mobile-submenu">
-                <a href="./notice.html">공지사항</a>
-                <a href="./contact.html">1:1 문의</a>
-            </div>
-        </li>
-    </ul>
-    <div class="footer-sns-icons" style="margin-top: 40px; justify-content: flex-start;">
-        <a href="#" class="f-icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="f-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="f-icon"><i class="fas fa-comment"></i></a>
-    </div>
-</div>
+<%--모바일 사이드바--%>
+<jsp:include page="/common/header.jsp"></jsp:include>
 
 <!-- 페이지 헤더 (타이틀 배너) -->
 <header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200'); background-position: center;">

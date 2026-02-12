@@ -20,72 +20,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <!-- 커스텀 CSS -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
-<!-- 상단 네비게이션 -->
-<nav id="navbar">
-  <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
-
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="${pageContext.request.contextPath}/brand">여운 스토리</a></div></li>
-    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="${pageContext.request.contextPath}menu/menu">커피 (Coffee)</a><a href="${pageContext.request.contextPath}menu/beverage">음료 (Beverage)</a><a href="${pageContext.request.contextPath}menu/dessert">디저트 (Dessert)</a></div></li>
-    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="${pageContext.request.contextPath}menu/shop">원두/드립백</a><a href="${pageContext.request.contextPath}menu/goods">홈카페 굿즈</a></div></li>
-    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="${pageContext.request.contextPath}/store">매장 찾기</a></div></li>
-    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="${pageContext.request.contextPath}notice/notice">공지사항</a><a href="${pageContext.request.contextPath}/contact">1:1 문의</a></div></li>
-  </ul>
-
-  <a href="#" class="logo">YEOWUN<span>餘韻</span></a>
-
-  <div class="nav-sns">
-    <div class="sns-box"><i class="fab fa-instagram"></i><span class="sns-tooltip">Instagram</span></div>
-    <div class="sns-box"><i class="fas fa-comment"></i><span class="sns-tooltip">KakaoTalk</span></div>
-    <div class="sns-box"><i class="fab fa-facebook-f"></i><span class="sns-tooltip">Facebook</span></div>
-  </div>
-</nav>
-
-<!-- 모바일 사이드바 -->
-<div class="mobile-sidebar" id="mobileSidebar">
-  <div class="mobile-sidebar-close" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
-  <ul>
-    <li>
-      <a href="#" style="cursor: default;">브랜드</a>
-      <div class="mobile-submenu">
-        <a href="#">여운 스토리</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">메뉴</a>
-      <div class="mobile-submenu">
-        <a href="${pageContext.request.contextPath}/menu">커피 (Coffee)</a>
-        <a href="${pageContext.request.contextPath}/beverage">음료 (Beverage)</a>
-        <a href="${pageContext.request.contextPath}/dessert">디저트 (Dessert)</a>
-      </div>
-
-      <div class="mobile-submenu">
-        <a href="${pageContext.request.contextPath}/shop">원두/드립백</a>
-        <a href="${pageContext.request.contextPath}/goods">홈카페 굿즈</a>
-      </div>
-
-      <div class="mobile-submenu">
-        <a href="${pageContext.request.contextPath}/store">매장 찾기</a>
-      </div>
-
-      <div class="mobile-submenu">
-        <a href="${pageContext.request.contextPath}/notice">공지사항</a>
-        <a href="${pageContext.request.contextPath}/contact">1:1 문의</a>
-      </div>
-
-    </li>
-  </ul>
-  <div class="footer-sns-icons" style="margin-top: 40px; justify-content: flex-start;">
-    <a href="#" class="f-icon"><i class="fab fa-instagram"></i></a>
-    <a href="#" class="f-icon"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="f-icon"><i class="fas fa-comment"></i></a>
-  </div>
-</div>
-
+<%--상단 네비게이션바--%>
+<jsp:include page="/common/header.jsp"></jsp:include>
 <!-- 메인 히어로 슬라이더 -->
 <header class="hero">
   <div class="swiper mainSwiper main-slider">
@@ -421,18 +360,6 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
-
-</body>
-</html>
-
-          delay += 50;
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }, 400);
-  }
-</script>
 
 </body>
 </html>
