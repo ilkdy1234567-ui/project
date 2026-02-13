@@ -11,130 +11,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>커피 메뉴 | YEOWUN COFFEE</title>
+  <title>여운 커피 | YEOWUN COFFEE</title>
 
   <!-- 외부 폰트 및 라이브러리 -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <!-- 커스텀 CSS -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
-<!-- 상단 네비게이션 -->
-<nav id="navbar">
-  <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
-
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="./brand.html">여운 스토리</a></div></li>
-    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="./menu.html">커피 (Coffee)</a><a href="./beverage.html">음료 (Beverage)</a><a href="./dessert.html">디저트 (Dessert)</a></div></li>
-    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="./shop.html">원두/드립백</a><a href="./goods.html">홈카페 굿즈</a></div></li>
-    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="./store.html">매장 찾기</a></div></li>
-    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="./notice.html">공지사항</a><a href="./contact.html">1:1 문의</a></div></li>
-  </ul>
-
-  <a href="./index.html" class="logo">YEOWUN<span>餘韻</span></a>
-
-  <div class="nav-sns">
-    <div class="sns-box"><i class="fab fa-instagram"></i><span class="sns-tooltip">Instagram</span></div>
-    <div class="sns-box"><i class="fas fa-comment"></i><span class="sns-tooltip">KakaoTalk</span></div>
-    <div class="sns-box"><i class="fab fa-facebook-f"></i><span class="sns-tooltip">Facebook</span></div>
-  </div>
-</nav>
-
-<!-- 모바일 사이드바 -->
-<div class="mobile-sidebar" id="mobileSidebar">
-  <div class="mobile-sidebar-close" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
-  <ul>
-    <li>
-      <a href="#" style="cursor: default;">브랜드</a>
-      <div class="mobile-submenu">
-        <a href="./brand.html">여운 스토리</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">메뉴</a>
-      <div class="mobile-submenu">
-        <a href="./menu.html">커피 (Coffee)</a>
-        <a href="./beverage.html">음료 (Beverage)</a>
-        <a href="./dessert.html">디저트 (Dessert)</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">온라인 숍</a>
-      <div class="mobile-submenu">
-        <a href="./shop.html">원두/드립백</a>
-        <a href="./goods.html">홈카페 굿즈</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">매장안내</a>
-      <div class="mobile-submenu">
-        <a href="./store.html">매장 찾기</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">고객지원</a>
-      <div class="mobile-submenu">
-        <a href="./notice.html">공지사항</a>
-        <a href="./contact.html">1:1 문의</a>
-      </div>
-    </li>
-  </ul>
-  <div class="footer-sns-icons" style="margin-top: 40px; justify-content: flex-start;">
-    <a href="#" class="f-icon"><i class="fab fa-instagram"></i></a>
-    <a href="#" class="f-icon"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="f-icon"><i class="fas fa-comment"></i></a>
-  </div>
-</div>
-
-<!-- 페이지 헤더 (타이틀 배너) -->
-<header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200'); background-position: center;">
-  <div class="page-header-content">
-    <h1 data-aos="fade-up">COFFEE MENU</h1>
-    <p data-aos="fade-up" data-aos-delay="100">여운이 준비한 시그니처 커피를 만나보세요</p>
-    <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-      <a href="./index.html">HOME</a> <i class="fas fa-chevron-right"></i>
-      <a href="#">메뉴</a> <i class="fas fa-chevron-right"></i>
-      <span>커피</span>
+<%--상단 네비게이션바--%>
+<jsp:include page="/common/header.jsp"></jsp:include>
+<!-- 메인 히어로 슬라이더 -->
+<header class="hero">
+  <div class="swiper mainSwiper main-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image:url('../img/main1.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('../img/main2.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('../img/main3.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('../img/main4.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('../img/main5.jpg')"></div>
     </div>
+    <div class="swiper-pagination"></div>
   </div>
 </header>
 
-<!-- 커피 메뉴 섹션 -->
+<!-- 여운 컬렉션 섹션 (4개씩 2줄) -->
 <section class="section">
   <div class="container">
-
-    <!-- 카테고리 필터 (HOT / ICE만) -->
-    <div class="menu-filter" data-aos="fade-up">
-      <button class="filter-btn active" onclick="filterMenu('all')">전체</button>
-      <button class="filter-btn" onclick="filterMenu('hot')">HOT</button>
-      <button class="filter-btn" onclick="filterMenu('ice')">ICE</button>
+    <div class="section-header" data-aos="fade-up">
+      <h2 style="color: #ddb86e;">YEOWUN Collection</h2>
     </div>
 
-    <!-- 커피 메뉴 그리드 (4x4 = 16개) -->
     <div class="menu-grid">
-
-      <!-- 커피 1 - ICE -->
-      <div class="card menu-item" data-category="ice" data-aos="fade-up">
+      <!-- 커피 1 -->
+      <div class="card" data-aos="fade-up">
         <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('아이스 아메리카노', 3200)">담기</button>
-          </div>
-        </div>
-        <h4>아이스 아메리카노</h4>
-        <p class="subtitle">Iced Americano</p>
-        <p class="description">여운(餘韻) 시그니처 원두의 깊은<br>풍미와 고급짐을 느낄수있는 커피</p>
-        <p class="price">3,200원</p>
-      </div>
-
-      <!-- 커피 2 - ICE -->
-      <div class="card menu-item" data-category="ice" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400')"></div>
+          <div class="thumb-img" style="background-image: url('./img/커피01.png')"></div>
           <div class="overlay">
             <button class="btn-add-cart" onclick="addToCart('콜드브루 라떼', 3500)">담기</button>
           </div>
@@ -145,202 +61,198 @@
         <p class="price">3,500원</p>
       </div>
 
-      <!-- 커피 3 - ICE -->
-      <div class="card menu-item" data-category="ice" data-aos="fade-up" data-aos-delay="100">
+      <!-- 커피 2 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400')"></div>
+          <div class="thumb-img" style="background-image: url('./img/커피02.png')"></div>
           <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('아이스 카페라떼', 3800)">담기</button>
+            <button class="btn-add-cart" onclick="addToCart('시그니처 바닐라라떼', 4800)">담기</button>
           </div>
         </div>
-        <h4>아이스 카페라떼</h4>
-        <p class="subtitle">Iced Cafe Latte</p>
-        <p class="description">부드러운 우유와 에스프레소의<br>시원한 조화</p>
-        <p class="price">3,800원</p>
-      </div>
-
-      <!-- 커피 4 - ICE -->
-      <div class="card menu-item" data-category="ice" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('바닐라 라떼', 4200)">담기</button>
-          </div>
-        </div>
-        <h4>바닐라 라떼</h4>
-        <p class="subtitle">Vanilla Latte</p>
-        <p class="description">바닐라의 달콤함과<br>커피의 깊은 맛의 조화</p>
-        <p class="price">4,200원</p>
-      </div>
-
-      <!-- 커피 5 - ICE -->
-      <div class="card menu-item" data-category="ice" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1569976710208-b52636b52c09?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('아이스 카라멜 마끼아또', 4500)">담기</button>
-          </div>
-        </div>
-        <h4>아이스 카라멜 마끼아또</h4>
-        <p class="subtitle">Iced Caramel Macchiato</p>
-        <p class="description">달콤한 카라멜과<br>에스프레소의 시원한 만남</p>
-        <p class="price">4,500원</p>
-      </div>
-
-      <!-- 커피 6 - ICE -->
-      <div class="card menu-item" data-category="ice" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1562329265-95a6d7a83440?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('아이스 모카', 4300)">담기</button>
-          </div>
-        </div>
-        <h4>아이스 모카</h4>
-        <p class="subtitle">Iced Mocha</p>
-        <p class="description">초콜릿과 커피의<br>달콤쌉싸름한 조화</p>
-        <p class="price">4,300원</p>
-      </div>
-
-      <!-- 커피 7 - ICE -->
-      <div class="card menu-item" data-category="ice" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('돌체 콜드브루', 4600)">담기</button>
-          </div>
-        </div>
-        <h4>돌체 콜드브루</h4>
-        <p class="subtitle">Dolce Cold Brew</p>
-        <p class="description">달콤한 돌체와 진한<br>콜드브루의 프리미엄 조합</p>
-        <p class="price">4,600원</p>
-      </div>
-
-      <!-- 커피 8 - ICE -->
-      <div class="card menu-item" data-category="ice" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('아인슈페너', 4800)">담기</button>
-          </div>
-        </div>
-        <h4>아인슈페너</h4>
-        <p class="subtitle">Einspanner</p>
-        <p class="description">진한 에스프레소 위<br>부드러운 생크림의 비엔나 커피</p>
+        <h4>시그니처 바닐라라떼</h4>
+        <p class="subtitle">Signature Vanilla Latte</p>
+        <p class="description">바닐라의 깊은 향과 여운(餘韻)의<br>시그니처 원두의 조화를 즐기는 커피</p>
         <p class="price">4,800원</p>
       </div>
 
-      <!-- 커피 9 - HOT -->
-      <div class="card menu-item" data-category="hot" data-aos="fade-up">
+      <!-- 커피 3 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
         <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400')"></div>
+          <div class="thumb-img" style="background-image: url('./img/커피03.png')"></div>
           <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('핫 아메리카노', 3000)">담기</button>
+            <button class="btn-add-cart" onclick="addToCart('아이스 아메리카노', 3200)">담기</button>
           </div>
         </div>
-        <h4>핫 아메리카노</h4>
-        <p class="subtitle">Hot Americano</p>
-        <p class="description">따뜻한 여운 원두의<br>깊고 진한 풍미</p>
-        <p class="price">3,000원</p>
+        <h4>아이스 아메리카노</h4>
+        <p class="subtitle">Iced Americano</p>
+        <p class="description">여운(餘韻) 시그니처 원두의 깊은<br>풍미와 고급짐을 느낄수있는 커피</p>
+        <p class="price">3,200원</p>
       </div>
 
-      <!-- 커피 10 - HOT -->
-      <div class="card menu-item" data-category="hot" data-aos="fade-up" data-aos-delay="50">
+      <!-- 커피 4 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
         <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1514481538271-cf9f99627ab4?w=400')"></div>
+          <div class="thumb-img" style="background-image: url('./img/커피05.png')"></div>
           <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('카페라떼', 3800)">담기</button>
+            <button class="btn-add-cart" onclick="addToCart('여운 더블코코베리', 6000)">담기</button>
+          </div>
+        </div>
+        <h4>여운 더블코코베리</h4>
+        <p class="subtitle">Yeowoon Double Cocoberry</p>
+        <p class="description">진한 초콜릿 베이스 라떼 속에 설향<br>스트로베리 청을 더한 시즌 음료</p>
+        <p class="price">6,000원</p>
+      </div>
+
+      <!-- 커피 5 -->
+      <div class="card" data-aos="fade-up">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('카페라떼', 4000)">담기</button>
           </div>
         </div>
         <h4>카페라떼</h4>
         <p class="subtitle">Cafe Latte</p>
-        <p class="description">부드러운 우유와 에스프레소의<br>완벽한 조화</p>
-        <p class="price">3,800원</p>
+        <p class="description">부드러운 우유와<br>에스프레소의 완벽한 밸런스</p>
+        <p class="price">4,000원</p>
       </div>
 
-      <!-- 커피 11 - HOT -->
-      <div class="card menu-item" data-category="hot" data-aos="fade-up" data-aos-delay="100">
+      <!-- 커피 6 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400')"></div>
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?w=600')"></div>
           <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('카푸치노', 3800)">담기</button>
+            <button class="btn-add-cart" onclick="addToCart('카푸치노', 4200)">담기</button>
           </div>
         </div>
         <h4>카푸치노</h4>
         <p class="subtitle">Cappuccino</p>
-        <p class="description">풍성한 우유 거품과<br>진한 에스프레소의 만남</p>
-        <p class="price">3,800원</p>
-      </div>
-
-      <!-- 커피 12 - HOT -->
-      <div class="card menu-item" data-category="hot" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1578374173704-4a3ab32eff0d?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('카페모카', 4200)">담기</button>
-          </div>
-        </div>
-        <h4>카페모카</h4>
-        <p class="subtitle">Cafe Mocha</p>
-        <p class="description">진한 초콜릿과 에스프레소의<br>달콤쌉싸름한 조화</p>
+        <p class="description">풍부한 우유 거품과<br>진한 에스프레소</p>
         <p class="price">4,200원</p>
       </div>
 
-      <!-- 커피 13 - HOT -->
-      <div class="card menu-item" data-category="hot" data-aos="fade-up">
+      <!-- 커피 7 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
         <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=400')"></div>
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600')"></div>
           <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('핫 바닐라라떼', 4200)">담기</button>
+            <button class="btn-add-cart" onclick="addToCart('바닐라라떼', 4500)">담기</button>
           </div>
         </div>
-        <h4>핫 바닐라라떼</h4>
-        <p class="subtitle">Hot Vanilla Latte</p>
-        <p class="description">따뜻한 바닐라의 달콤함과<br>부드러운 우유의 조화</p>
-        <p class="price">4,200원</p>
-      </div>
-
-      <!-- 커피 14 - HOT -->
-      <div class="card menu-item" data-category="hot" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1542385262-1f70c24bfaf2?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('헤이즐넛 라떼', 4500)">담기</button>
-          </div>
-        </div>
-        <h4>헤이즐넛 라떼</h4>
-        <p class="subtitle">Hazelnut Latte</p>
-        <p class="description">고소한 헤이즐넛 향과<br>부드러운 라떼의 조화</p>
+        <h4>바닐라라떼</h4>
+        <p class="subtitle">Vanilla Latte</p>
+        <p class="description">달콤한 바닐라 향의<br>부드러운 라떼</p>
         <p class="price">4,500원</p>
       </div>
 
-      <!-- 커피 15 - HOT -->
-      <div class="card menu-item" data-category="hot" data-aos="fade-up" data-aos-delay="100">
+      <!-- 커피 8 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
         <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400')"></div>
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600')"></div>
           <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('핫 카라멜 마끼아또', 4500)">담기</button>
+            <button class="btn-add-cart" onclick="addToCart('아메리카노', 3500)">담기</button>
           </div>
         </div>
-        <h4>핫 카라멜 마끼아또</h4>
-        <p class="subtitle">Hot Caramel Macchiato</p>
-        <p class="description">따뜻한 카라멜의 달콤함과<br>에스프레소의 깊은 맛</p>
-        <p class="price">4,500원</p>
+        <h4>아메리카노</h4>
+        <p class="subtitle">Americano</p>
+        <p class="description">깊고 진한<br>에스프레소의 풍미</p>
+        <p class="price">3,500원</p>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- 커피 16 - HOT -->
-      <div class="card menu-item" data-category="hot" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400')"></div>
+<!-- 품질 섹션 -->
+<section class="quality-section">
+  <div class="container">
+    <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem;" data-aos="fade-up">The Quality Difference</h2>
+    <div class="quality-grid">
+      <div class="quality-item" style="text-align: left;" data-aos="fade-right">
+        <h3>Golden Ratio</h3>
+        <p>수만 번의 테스팅을 거쳐 탄생한 여운만의 황금 비율 레시피는 원두 본연의 풍미를 극대화합니다. 숙련된 바리스타가 매일 아침 환경에 맞춰 추출 설정을 조정합니다.</p>
+        <br><br>
+        <h3>Artisan Roasting</h3>
+        <p>대량 생산이 아닌, 원두의 특성에 맞춘 소량 직화 로스팅을 고집합니다. 갓 볶은 신선한 원두만을 사용하여 입안 가득 퍼지는 섬세한 향을 약속드립니다.</p>
+      </div>
+      <div class="quality-item" data-aos="zoom-in">
+        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=600" class="quality-center-img">
+      </div>
+      <div class="quality-item" style="text-align: right;" data-aos="fade-left">
+        <h3>Pure Source</h3>
+        <p>세계 3대 커피로 불리는 예멘 하라즈 고산지대의 야생 커피나무에서 채취한 최상급 생두만을 사용합니다. 화학 비료 없이 자연이 길러낸 순수한 에너지를 담았습니다.</p>
+        <br><br>
+        <h3>Sensory Experience</h3>
+        <p>커피는 단순한 음료를 넘어선 경험입니다. 여운의 공간은 혀끝의 감각뿐만 아니라 시각적인 조형미, 코끝에 닿는 아로마까지 조화롭게 설계되었습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 굿즈 섹션 (5개 배치 - 슬라이드 제거) -->
+<section class="section" style="background: var(--bg-cream);">
+  <div class="container">
+    <h2 style="color: #ddb86e; text-align: center; font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 50px;">YEOWUN Goods</h2>
+
+    <div class="goods-grid">
+      <!-- 굿즈 1 -->
+      <div class="card" data-aos="fade-up">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_01.png')"></div>
           <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('화이트 모카', 4800)">담기</button>
+            <button class="btn-add-cart" onclick="addToCart('굿즈 1', 25000)">담기</button>
           </div>
         </div>
-        <h4>화이트 모카</h4>
-        <p class="subtitle">White Mocha</p>
-        <p class="description">부드러운 화이트 초콜릿과<br>에스프레소의 고급스러운 만남</p>
-        <p class="price">4,800원</p>
+        <h4>굿즈 1</h4>
+        <p class="price">25,000원</p>
       </div>
 
+      <!-- 굿즈 2 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_02.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 2', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>굿즈 2</h4>
+        <p class="price">25,000원</p>
+      </div>
+
+      <!-- 굿즈 3 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_03.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 3', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>굿즈 3</h4>
+        <p class="price">25,000원</p>
+      </div>
+
+      <!-- 굿즈 4 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_04.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 4', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>굿즈 4</h4>
+        <p class="price">25,000원</p>
+      </div>
+
+      <!-- 굿즈 5 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_06w.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 5', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>굿즈 5</h4>
+        <p class="price">25,000원</p>
+      </div>
     </div>
   </div>
 </section>
@@ -379,7 +291,7 @@
     <div class="footer-info-col">
       <h5>CONTACT US</h5>
       <p style="font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;">02-123-4567</p>
-      <p style="font-size: 0.85rem; color: #888;">평일 09:00 - 18:00 (주말/공휴일 휴무)<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="beddd1d0cadfddcafec7dbd1c9cbd090ddd1d3">[email&#160;protected]</a></p>
+      <p style="font-size: 0.85rem; color: #888;">평일 09:00 - 18:00 (주말/공휴일 휴무)<br>yeowun_coffee@brand.com</p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -403,7 +315,7 @@
     </div>
   </div>
   <div class="float-item cart-btn" onclick="toggleDashboard()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count">0</span></div>
-  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTo(0,0)"><i class="fas fa-arrow-up"></i></div>
 </div>
 
 <!-- 주문서 모달 -->
@@ -445,53 +357,9 @@
 </div>
 
 <!-- 외부 스크립트 -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/js/script.js"></script>
-
-<!-- 메뉴 필터링 스크립트 -->
-<script>
-  function filterMenu(category) {
-    const items = document.querySelectorAll('.menu-item');
-    const buttons = document.querySelectorAll('.filter-btn');
-
-    // 버튼 active 상태 변경
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
-    // CSS 전환 효과 설정
-    items.forEach(item => {
-      item.style.transition = 'all 0.4s ease';
-    });
-
-    // 먼저 모두 페이드아웃
-    items.forEach(item => {
-      item.style.opacity = '0';
-      item.style.transform = 'scale(0.95)';
-    });
-
-    // 400ms 후 필터링 적용
-    setTimeout(() => {
-      let delay = 0;
-
-      items.forEach((item) => {
-        const itemCategory = item.getAttribute('data-category');
-
-        if (category === 'all' || itemCategory === category) {
-          item.style.display = 'block';
-
-          setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'scale(1)';
-          }, delay);
-
-          delay += 50;
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }, 400);
-  }
-</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

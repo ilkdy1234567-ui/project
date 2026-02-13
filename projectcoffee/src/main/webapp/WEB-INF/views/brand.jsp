@@ -11,7 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>음료 메뉴 | YEOWUN COFFEE</title>
+  <title>브랜드 스토리 | YEOWUN COFFEE</title>
 
   <!-- 외부 폰트 및 라이브러리 -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,329 +19,157 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- 커스텀 CSS -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <!-- 상단 네비게이션 -->
-<nav id="navbar">
-  <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
-
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="./brand.html">여운 스토리</a></div></li>
-    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="./menu.html">커피 (Coffee)</a><a href="./beverage.html">음료 (Beverage)</a><a href="./dessert.html">디저트 (Dessert)</a></div></li>
-    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="./shop.html">원두/드립백</a><a href="./goods.html">홈카페 굿즈</a></div></li>
-    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="./store.html">매장 찾기</a></div></li>
-    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="./notice.html">공지사항</a><a href="./contact.html">1:1 문의</a></div></li>
-  </ul>
-
-  <a href="./index.html" class="logo">YEOWUN<span>餘韻</span></a>
-
-  <div class="nav-sns">
-    <div class="sns-box"><i class="fab fa-instagram"></i><span class="sns-tooltip">Instagram</span></div>
-    <div class="sns-box"><i class="fas fa-comment"></i><span class="sns-tooltip">KakaoTalk</span></div>
-    <div class="sns-box"><i class="fab fa-facebook-f"></i><span class="sns-tooltip">Facebook</span></div>
-  </div>
-</nav>
-
 <!-- 모바일 사이드바 -->
-<div class="mobile-sidebar" id="mobileSidebar">
-  <div class="mobile-sidebar-close" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
-  <ul>
-    <li>
-      <a href="#" style="cursor: default;">브랜드</a>
-      <div class="mobile-submenu">
-        <a href="#">여운 스토리</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">메뉴</a>
-      <div class="mobile-submenu">
-        <a href="./menu.html">커피 (Coffee)</a>
-        <a href="./beverage.html">음료 (Beverage)</a>
-        <a href="./dessert.html">디저트 (Dessert)</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">온라인 숍</a>
-      <div class="mobile-submenu">
-        <a href="./shop.html">원두/드립백</a>
-        <a href="./goods.html">홈카페 굿즈</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">매장안내</a>
-      <div class="mobile-submenu">
-        <a href="./store.html">매장 찾기</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">고객지원</a>
-      <div class="mobile-submenu">
-        <a href="./notice.html">공지사항</a>
-        <a href="./contact.html">1:1 문의</a>
-      </div>
-    </li>
-  </ul>
-  <div class="footer-sns-icons" style="margin-top: 40px; justify-content: flex-start;">
-    <a href="#" class="f-icon"><i class="fab fa-instagram"></i></a>
-    <a href="#" class="f-icon"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="f-icon"><i class="fas fa-comment"></i></a>
-  </div>
-</div>
+<jsp:include page="/common/header.jsp"></jsp:include>
 
 <!-- 페이지 헤더 (타이틀 배너) -->
-<header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1546548970-71785318a17b?w=1200'); background-position: center;">
+<header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1200'); background-position: center;">
   <div class="page-header-content">
-    <h1 data-aos="fade-up">BEVERAGE MENU</h1>
-    <p data-aos="fade-up" data-aos-delay="100">신선한 과일로 만든 상큼한 음료를 즐겨보세요</p>
+    <h1 data-aos="fade-up">BRAND STORY</h1>
+    <p data-aos="fade-up" data-aos-delay="100">여운, 한 잔의 커피에 담긴 깊은 이야기</p>
     <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
       <a href="./index.html">HOME</a> <i class="fas fa-chevron-right"></i>
-      <a href="#">메뉴</a> <i class="fas fa-chevron-right"></i>
-      <span>음료</span>
+      <a href="#">브랜드</a> <i class="fas fa-chevron-right"></i>
+      <span>여운 스토리</span>
     </div>
   </div>
 </header>
 
-<!-- 음료 메뉴 섹션 -->
+<!-- 브랜드 스토리 섹션 -->
 <section class="section">
   <div class="container">
 
-    <!-- 카테고리 필터 -->
-    <div class="menu-filter" data-aos="fade-up">
-      <button class="filter-btn active" onclick="filterMenu('all')">전체</button>
-      <button class="filter-btn" onclick="filterMenu('ade')">에이드</button>
-      <button class="filter-btn" onclick="filterMenu('smoothie')">스무디</button>
+    <!-- 브랜드 철학 -->
+    <div style="max-width: 900px; margin: 0 auto 100px; text-align: center;" data-aos="fade-up">
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 30px; color: var(--text-dark);">餘韻 (여운)</h2>
+      <p style="font-size: 1.1rem; line-height: 1.9; color: #666; margin-bottom: 20px;">
+        여운(餘韻)은 '남은 운치' 또는 '여운'을 의미합니다.<br>
+        한 잔의 커피가 주는 맛과 향, 그리고 그 순간의 감동이<br>
+        오래도록 마음속에 깊이 남기를 바라는 마음을 담았습니다.
+      </p>
+      <p style="font-size: 1rem; line-height: 1.8; color: #999;">
+        예멘 고산지대에서 자란 최상급 원두만을 엄선하여,<br>
+        한국인의 입맛에 맞는 완벽한 로스팅으로<br>
+        특별한 커피 경험을 선사합니다.
+      </p>
     </div>
 
-    <!-- 음료 메뉴 그리드 (4x4 = 16개) -->
-    <div class="menu-grid">
+    <!-- 타임라인 -->
+    <div style="max-width: 1000px; margin: 0 auto 100px;">
+      <h3 style="text-align: center; font-size: 2rem; margin-bottom: 60px; color: var(--text-dark);" data-aos="fade-up">OUR JOURNEY</h3>
 
-      <!-- 음료 1 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('레몬 에이드', 4500)">담기</button>
+      <div style="position: relative;">
+        <!-- 세로선 -->
+        <div style="position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: #e5e5e5;"></div>
+
+        <!-- 2020 -->
+        <div style="display: flex; align-items: center; margin-bottom: 80px; position: relative;" data-aos="fade-right">
+          <div style="flex: 1; text-align: right; padding-right: 50px;">
+            <h4 style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 10px;">2020</h4>
+            <p style="color: #666; line-height: 1.7;">예멘 모카 원두 직수입 시작<br>여운 커피 브랜드 설립</p>
+          </div>
+          <div style="width: 20px; height: 20px; background: var(--accent-gold); border-radius: 50%; position: relative; z-index: 2; border: 4px solid white;"></div>
+          <div style="flex: 1;"></div>
+        </div>
+
+        <!-- 2021 -->
+        <div style="display: flex; align-items: center; margin-bottom: 80px; position: relative;" data-aos="fade-left">
+          <div style="flex: 1;"></div>
+          <div style="width: 20px; height: 20px; background: var(--accent-gold); border-radius: 50%; position: relative; z-index: 2; border: 4px solid white;"></div>
+          <div style="flex: 1; padding-left: 50px;">
+            <h4 style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 10px;">2021</h4>
+            <p style="color: #666; line-height: 1.7;">강남 1호점 오픈<br>로스팅 팩토리 설립</p>
           </div>
         </div>
-        <h4>레몬 에이드</h4>
-        <p class="subtitle">Lemon Ade</p>
-        <p class="description">상큼한 레몬의 청량감과<br>달콤함이 어우러진 시원한 음료</p>
-        <p class="price">4,500원</p>
-      </div>
 
-      <!-- 음료 2 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('자몽 에이드', 4700)">담기</button>
+        <!-- 2022 -->
+        <div style="display: flex; align-items: center; margin-bottom: 80px; position: relative;" data-aos="fade-right">
+          <div style="flex: 1; text-align: right; padding-right: 50px;">
+            <h4 style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 10px;">2022</h4>
+            <p style="color: #666; line-height: 1.7;">전국 20개 매장 달성<br>온라인 스토어 오픈</p>
+          </div>
+          <div style="width: 20px; height: 20px; background: var(--accent-gold); border-radius: 50%; position: relative; z-index: 2; border: 4px solid white;"></div>
+          <div style="flex: 1;"></div>
+        </div>
+
+        <!-- 2024 -->
+        <div style="display: flex; align-items: center; margin-bottom: 80px; position: relative;" data-aos="fade-left">
+          <div style="flex: 1;"></div>
+          <div style="width: 20px; height: 20px; background: var(--accent-gold); border-radius: 50%; position: relative; z-index: 2; border: 4px solid white;"></div>
+          <div style="flex: 1; padding-left: 50px;">
+            <h4 style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 10px;">2024</h4>
+            <p style="color: #666; line-height: 1.7;">SCA 인증 로스터리 획득<br>50호점 돌파</p>
           </div>
         </div>
-        <h4>자몽 에이드</h4>
-        <p class="subtitle">Grapefruit Ade</p>
-        <p class="description">새콤달콤한 자몽의 맛과<br>상큼한 향이 가득한 음료</p>
-        <p class="price">4,700원</p>
-      </div>
 
-      <!-- 음료 3 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1587334207988-c2a0c7adf798?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('청포도 에이드', 4500)">담기</button>
+        <!-- 2026 -->
+        <div style="display: flex; align-items: center; position: relative;" data-aos="fade-right">
+          <div style="flex: 1; text-align: right; padding-right: 50px;">
+            <h4 style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 10px;">2026</h4>
+            <p style="color: #666; line-height: 1.7;">프리미엄 드립백 론칭<br>글로벌 시장 진출</p>
           </div>
+          <div style="width: 20px; height: 20px; background: var(--accent-gold); border-radius: 50%; position: relative; z-index: 2; border: 4px solid white;"></div>
+          <div style="flex: 1;"></div>
         </div>
-        <h4>청포도 에이드</h4>
-        <p class="subtitle">Green Grape Ade</p>
-        <p class="description">달콤한 청포도의 풍미가<br>가득한 시원한 에이드</p>
-        <p class="price">4,500원</p>
       </div>
-
-      <!-- 음료 4 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('복숭아 아이스티', 4300)">담기</button>
-          </div>
-        </div>
-        <h4>복숭아 아이스티</h4>
-        <p class="subtitle">Peach Ice Tea</p>
-        <p class="description">달콤한 복숭아와 홍차의<br>완벽한 조화</p>
-        <p class="price">4,300원</p>
-      </div>
-
-      <!-- 음료 5 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('패션후르츠 에이드', 4800)">담기</button>
-          </div>
-        </div>
-        <h4>패션후르츠 에이드</h4>
-        <p class="subtitle">Passion Fruit Ade</p>
-        <p class="description">트로피컬한 패션후르츠의<br>진한 향과 맛</p>
-        <p class="price">4,800원</p>
-      </div>
-
-      <!-- 음료 6 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('라임 모히또', 5000)">담기</button>
-          </div>
-        </div>
-        <h4>라임 모히또</h4>
-        <p class="subtitle">Lime Mojito</p>
-        <p class="description">상큼한 라임과 민트의<br>청량한 무알콜 모히또</p>
-        <p class="price">5,000원</p>
-      </div>
-
-      <!-- 음료 7 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('망고 에이드', 4900)">담기</button>
-          </div>
-        </div>
-        <h4>망고 에이드</h4>
-        <p class="subtitle">Mango Ade</p>
-        <p class="description">달콤한 망고의 풍부한 맛과<br>부드러운 식감</p>
-        <p class="price">4,900원</p>
-      </div>
-
-      <!-- 음료 8 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('유자 허니 티', 4200)">담기</button>
-          </div>
-        </div>
-        <h4>유자 허니 티</h4>
-        <p class="subtitle">Yuzu Honey Tea</p>
-        <p class="description">달콤한 꿀과 향긋한 유자의<br>따뜻한 만남</p>
-        <p class="price">4,200원</p>
-      </div>
-
-      <!-- 음료 9 - 스무디 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('딸기 바나나 스무디', 5200)">담기</button>
-          </div>
-        </div>
-        <h4>딸기 바나나 스무디</h4>
-        <p class="subtitle">Strawberry Banana Smoothie</p>
-        <p class="description">달콤한 딸기와 바나나의<br>부드러운 조화</p>
-        <p class="price">5,200원</p>
-      </div>
-
-      <!-- 음료 10 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('망고 요거트 스무디', 5500)">담기</button>
-          </div>
-        </div>
-        <h4>망고 요거트 스무디</h4>
-        <p class="subtitle">Mango Yogurt Smoothie</p>
-        <p class="description">달콤한 망고와 상큼한 요거트의<br>건강한 조합</p>
-        <p class="price">5,500원</p>
-      </div>
-
-      <!-- 음료 11 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('블루베리 스무디', 5300)">담기</button>
-          </div>
-        </div>
-        <h4>블루베리 스무디</h4>
-        <p class="subtitle">Blueberry Smoothie</p>
-        <p class="description">신선한 블루베리로 만든<br>건강하고 맛있는 스무디</p>
-        <p class="price">5,300원</p>
-      </div>
-
-      <!-- 음료 12 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('딸기 스무디', 5000)">담기</button>
-          </div>
-        </div>
-        <h4>딸기 스무디</h4>
-        <p class="subtitle">Strawberry Smoothie</p>
-        <p class="description">달콤하고 상큼한 딸기의<br>풍부한 맛</p>
-        <p class="price">5,000원</p>
-      </div>
-
-      <!-- 음료 13 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1577805947697-89e18249d767?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('그린 스무디', 5400)">담기</button>
-          </div>
-        </div>
-        <h4>그린 스무디</h4>
-        <p class="subtitle">Green Smoothie</p>
-        <p class="description">신선한 채소와 과일로 만든<br>건강 스무디</p>
-        <p class="price">5,400원</p>
-      </div>
-
-      <!-- 음료 14 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('믹스베리 스무디', 5600)">담기</button>
-          </div>
-        </div>
-        <h4>믹스베리 스무디</h4>
-        <p class="subtitle">Mixed Berry Smoothie</p>
-        <p class="description">다양한 베리의 영양과 맛이<br>가득한 스무디</p>
-        <p class="price">5,600원</p>
-      </div>
-
-      <!-- 음료 15 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1615478503562-ec2d8aa0e24e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('초코 바나나 스무디', 5500)">담기</button>
-          </div>
-        </div>
-        <h4>초코 바나나 스무디</h4>
-        <p class="subtitle">Choco Banana Smoothie</p>
-        <p class="description">달콤한 초콜릿과 바나나의<br>환상적인 조합</p>
-        <p class="price">5,500원</p>
-      </div>
-
-      <!-- 음료 16 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('키위 스무디', 5200)">담기</button>
-          </div>
-        </div>
-        <h4>키위 스무디</h4>
-        <p class="subtitle">Kiwi Smoothie</p>
-        <p class="description">상큼한 키위의 비타민이<br>가득한 건강 음료</p>
-        <p class="price">5,200원</p>
-      </div>
-
     </div>
+
+    <!-- 비전 & 미션 -->
+    <div style="background: #f8f5f0; padding: 80px 40px; border-radius: 20px;" data-aos="fade-up">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--text-dark);">VISION & MISSION</h3>
+          <p style="color: #666;">여운이 나아가는 방향</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+          <!-- 비전 -->
+          <div style="text-align: center; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <div style="width: 70px; height: 70px; background: var(--accent-gold); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-eye" style="font-size: 2rem; color: white;"></i>
+            </div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--text-dark);">VISION</h4>
+            <p style="font-size: 0.95rem; color: #666; line-height: 1.7;">
+              대한민국을 대표하는<br>
+              프리미엄 커피 브랜드로<br>
+              성장하겠습니다
+            </p>
+          </div>
+
+          <!-- 미션 1 -->
+          <div style="text-align: center; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <div style="width: 70px; height: 70px; background: var(--accent-gold); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-seedling" style="font-size: 2rem; color: white;"></i>
+            </div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--text-dark);">QUALITY</h4>
+            <p style="font-size: 0.95rem; color: #666; line-height: 1.7;">
+              최상급 원두와<br>
+              완벽한 로스팅으로<br>
+              품질을 추구합니다
+            </p>
+          </div>
+
+          <!-- 미션 2 -->
+          <div style="text-align: center; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <div style="width: 70px; height: 70px; background: var(--accent-gold); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-heart" style="font-size: 2rem; color: white;"></i>
+            </div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--text-dark);">PASSION</h4>
+            <p style="font-size: 0.95rem; color: #666; line-height: 1.7;">
+              커피에 대한 열정과<br>
+              고객에 대한 진심으로<br>
+              감동을 전합니다
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -411,7 +239,6 @@
   <div class="order-paper">
     <h3>ORDER SHEET</h3>
 
-    <!-- 주문 메뉴 리스트 추가 -->
     <div class="order-form-group">
       <label><i class="fas fa-shopping-cart"></i> 주문 메뉴</label>
       <div id="order-menu-list" style="background: #f8f5f0; padding: 15px; border-radius: 10px; max-height: 150px; overflow-y: auto; font-size: 0.9rem;"></div>
@@ -446,52 +273,7 @@
 
 <!-- 외부 스크립트 -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/js/script.js"></script>
-
-<!-- 메뉴 필터링 스크립트 -->
-<script>
-  function filterMenu(category) {
-    const items = document.querySelectorAll('.menu-item');
-    const buttons = document.querySelectorAll('.filter-btn');
-
-    // 버튼 active 상태 변경
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
-    // CSS 전환 효과 설정
-    items.forEach(item => {
-      item.style.transition = 'all 0.4s ease';
-    });
-
-    // 먼저 모두 페이드아웃
-    items.forEach(item => {
-      item.style.opacity = '0';
-      item.style.transform = 'scale(0.95)';
-    });
-
-    // 400ms 후 필터링 적용
-    setTimeout(() => {
-      let delay = 0;
-
-      items.forEach((item) => {
-        const itemCategory = item.getAttribute('data-category');
-
-        if (category === 'all' || itemCategory === category) {
-          item.style.display = 'block';
-
-          setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'scale(1)';
-          }, delay);
-
-          delay += 50;
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }, 400);
-  }
-</script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>
