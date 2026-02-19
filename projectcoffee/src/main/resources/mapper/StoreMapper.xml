@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.projectcoffee.store.mapper.StoreMapper">
+    <select id="selectStoreList" resultType="com.simplecoding.projectcoffee.store.vo.Store">
+        SELECT STORE_ID, STORE_NAME, ADDRESS, PHONE, O_TIME, C_DATE
+        FROM STORE
+    </select>
+</mapper>
