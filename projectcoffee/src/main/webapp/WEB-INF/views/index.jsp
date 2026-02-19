@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -47,117 +49,27 @@
     </div>
 
     <div class="menu-grid">
-      <!-- 커피 1 -->
-      <div class="card" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('./img/커피01.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('콜드브루 라떼', 3500)">담기</button>
+      <c:forEach var="item" items="${mainMenus}">
+        <div class="card">
+          <div class="thumb-box">
+            <div class="thumb-img"
+                 style="background-image: url('${item.imgUrl}')"></div>
+            <div class="overlay">
+              <button class="btn-add-cart"
+                      onclick="addToCart('${item.pname}', ${item.price})">
+                담기
+              </button>
+            </div>
           </div>
-        </div>
-        <h4>콜드브루 라떼</h4>
-        <p class="subtitle">Cold Brew Latte</p>
-        <p class="description">폼 밀크속에 진한 콜드브루 조합<br>달콤한 깊함에 부드럽게 즐기는커피</p>
-        <p class="price">3,500원</p>
-      </div>
 
-      <!-- 커피 2 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('./img/커피02.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('시그니처 바닐라라떼', 4800)">담기</button>
-          </div>
+          <h4>${item.pname}</h4>
+          <p class="subtitle">${item.subtitle}</p>
+          <p class="description">${item.description}</p>
+          <p class="price">
+            <fmt:formatNumber value="${item.price}" pattern="#,###"/>원
+          </p>
         </div>
-        <h4>시그니처 바닐라라떼</h4>
-        <p class="subtitle">Signature Vanilla Latte</p>
-        <p class="description">바닐라의 깊은 향과 여운(餘韻)의<br>시그니처 원두의 조화를 즐기는 커피</p>
-        <p class="price">4,800원</p>
-      </div>
-
-      <!-- 커피 3 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('./img/커피03.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('아이스 아메리카노', 3200)">담기</button>
-          </div>
-        </div>
-        <h4>아이스 아메리카노</h4>
-        <p class="subtitle">Iced Americano</p>
-        <p class="description">여운(餘韻) 시그니처 원두의 깊은<br>풍미와 고급짐을 느낄수있는 커피</p>
-        <p class="price">3,200원</p>
-      </div>
-
-      <!-- 커피 4 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="300">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('./img/커피05.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('여운 더블코코베리', 6000)">담기</button>
-          </div>
-        </div>
-        <h4>여운 더블코코베리</h4>
-        <p class="subtitle">Yeowoon Double Cocoberry</p>
-        <p class="description">진한 초콜릿 베이스 라떼 속에 설향<br>스트로베리 청을 더한 시즌 음료</p>
-        <p class="price">6,000원</p>
-      </div>
-
-      <!-- 커피 5 -->
-      <div class="card" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('카페라떼', 4000)">담기</button>
-          </div>
-        </div>
-        <h4>카페라떼</h4>
-        <p class="subtitle">Cafe Latte</p>
-        <p class="description">부드러운 우유와<br>에스프레소의 완벽한 밸런스</p>
-        <p class="price">4,000원</p>
-      </div>
-
-      <!-- 커피 6 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?w=600')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('카푸치노', 4200)">담기</button>
-          </div>
-        </div>
-        <h4>카푸치노</h4>
-        <p class="subtitle">Cappuccino</p>
-        <p class="description">풍부한 우유 거품과<br>진한 에스프레소</p>
-        <p class="price">4,200원</p>
-      </div>
-
-      <!-- 커피 7 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('바닐라라떼', 4500)">담기</button>
-          </div>
-        </div>
-        <h4>바닐라라떼</h4>
-        <p class="subtitle">Vanilla Latte</p>
-        <p class="description">달콤한 바닐라 향의<br>부드러운 라떼</p>
-        <p class="price">4,500원</p>
-      </div>
-
-      <!-- 커피 8 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="300">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('아메리카노', 3500)">담기</button>
-          </div>
-        </div>
-        <h4>아메리카노</h4>
-        <p class="subtitle">Americano</p>
-        <p class="description">깊고 진한<br>에스프레소의 풍미</p>
-        <p class="price">3,500원</p>
-      </div>
+      </c:forEach>
     </div>
   </div>
 </section>
@@ -187,75 +99,41 @@
     </div>
   </div>
 </section>
-
 <!-- 굿즈 섹션 (5개 배치 - 슬라이드 제거) -->
 <section class="section" style="background: var(--bg-cream);">
   <div class="container">
-    <h2 style="color: #ddb86e; text-align: center; font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 50px;">YEOWUN Goods</h2>
+    <h2 style="color:#ddb86e; text-align:center; font-family:'Playfair Display'; font-size:2.5rem; margin-bottom:50px;">
+      YEOWUN Goods
+    </h2>
 
     <div class="goods-grid">
-      <!-- 굿즈 1 -->
-      <div class="card" data-aos="fade-up">
-        <div class="thumb-box" style="height: 220px;">
-          <div class="thumb-img" style="background-image: url('../img/goods_01.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('굿즈 1', 25000)">담기</button>
-          </div>
-        </div>
-        <h4>굿즈 1</h4>
-        <p class="price">25,000원</p>
-      </div>
+      <c:forEach var="item" items="${mainGoods}">
+        <div class="card menu-item" data-aos="fade-up">
 
-      <!-- 굿즈 2 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box" style="height: 220px;">
-          <div class="thumb-img" style="background-image: url('../img/goods_02.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('굿즈 2', 25000)">담기</button>
-          </div>
-        </div>
-        <h4>굿즈 2</h4>
-        <p class="price">25,000원</p>
-      </div>
+          <div class="thumb-box" style="height:220px;">
+            <div class="thumb-img" style="background-image:url('${item.imgUrl}')"></div>
 
-      <!-- 굿즈 3 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <div class="thumb-box" style="height: 220px;">
-          <div class="thumb-img" style="background-image: url('../img/goods_03.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('굿즈 3', 25000)">담기</button>
+            <!-- overlay는 thumb-box 안에 있어야 덮임 -->
+            <div class="overlay">
+              <button class="btn-add-cart"
+                      type="button"
+                      onclick="addToCart('${item.pname}', ${item.price})">
+                담기
+              </button>
+            </div>
           </div>
-        </div>
-        <h4>굿즈 3</h4>
-        <p class="price">25,000원</p>
-      </div>
 
-      <!-- 굿즈 4 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="300">
-        <div class="thumb-box" style="height: 220px;">
-          <div class="thumb-img" style="background-image: url('../img/goods_04.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('굿즈 4', 25000)">담기</button>
-          </div>
-        </div>
-        <h4>굿즈 4</h4>
-        <p class="price">25,000원</p>
-      </div>
+          <h4>${item.pname}</h4>
+          <p class="price">
+            <fmt:formatNumber value="${item.price}" pattern="#,###" />원
+          </p>
 
-      <!-- 굿즈 5 -->
-      <div class="card" data-aos="fade-up" data-aos-delay="400">
-        <div class="thumb-box" style="height: 220px;">
-          <div class="thumb-img" style="background-image: url('../img/goods_06w.png')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('굿즈 5', 25000)">담기</button>
-          </div>
         </div>
-        <h4>굿즈 5</h4>
-        <p class="price">25,000원</p>
-      </div>
+      </c:forEach>
     </div>
   </div>
 </section>
+
 
 <!-- 푸터 -->
 <footer class="main-footer">

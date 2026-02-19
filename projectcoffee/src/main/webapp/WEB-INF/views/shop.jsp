@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -55,173 +58,28 @@
     <!-- 원두 상품 그리드 (3x4 = 12개) -->
     <div class="menu-grid">
 
-      <!-- 상품 1 -->
-      <div class="card menu-item" data-category="ethiopia" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('예멘 모카 원두 200g', 18500)">담기</button>
-          </div>
-        </div>
-        <h4>예멘 모카 원두 200g</h4>
-        <p class="subtitle">Yemen Mocha Beans</p>
-        <p class="description">초콜릿과 과일 향이 조화로운<br>프리미엄 예멘 원두</p>
-        <p class="price">18,500원</p>
-      </div>
+      <c:forEach var="item" items="${list}">
+        <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
 
-      <!-- 상품 2 -->
-      <div class="card menu-item" data-category="ethiopia" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('에티오피아 예가체프 200g', 16800)">담기</button>
+          <div class="thumb-box">
+            <div class="thumb-img"
+                 style="background-image: url('${item.imgUrl}')">
+            </div>
+            <div class="overlay">
+              <button class="btn-add-cart"
+                      onclick="addToCart('${item.pname}', ${item.price})">
+                담기
+              </button>
+            </div>
           </div>
-        </div>
-        <h4>에티오피아 예가체프 200g</h4>
-        <p class="subtitle">Ethiopia Yirgacheffe</p>
-        <p class="description">플로럴한 향과 밝은 산미의<br>시그니처 원두</p>
-        <p class="price">16,800원</p>
-      </div>
 
-      <!-- 상품 3 -->
-      <div class="card menu-item" data-category="ethiopia" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('에티오피아 시다모 200g', 15900)">담기</button>
-          </div>
-        </div>
-        <h4>에티오피아 시다모 200g</h4>
-        <p class="subtitle">Ethiopia Sidamo</p>
-        <p class="description">와인같은 바디감과<br>달콤한 여운</p>
-        <p class="price">15,900원</p>
-      </div>
+          <h4>${item.pname}</h4>
+          <p class="subtitle">${item.subtitle}</p>
+          <p class="description">${item.description}</p>
+          <p class="price"><fmt:formatNumber value="${item.price}" pattern="#,###" />원</p>
 
-      <!-- 상품 4 -->
-      <div class="card menu-item" data-category="colombia" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1611564364817-c64e1d0c41ee?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('콜롬비아 수프리모 200g', 14500)">담기</button>
-          </div>
         </div>
-        <h4>콜롬비아 수프리모 200g</h4>
-        <p class="subtitle">Colombia Supremo</p>
-        <p class="description">균형잡힌 맛과<br>부드러운 바디감</p>
-        <p class="price">14,500원</p>
-      </div>
-
-      <!-- 상품 5 -->
-      <div class="card menu-item" data-category="colombia" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('콜롬비아 핑크버번 200g', 17200)">담기</button>
-          </div>
-        </div>
-        <h4>콜롬비아 핑크버번 200g</h4>
-        <p class="subtitle">Colombia Pink Bourbon</p>
-        <p class="description">독특한 과일 향과<br>화사한 풍미</p>
-        <p class="price">17,200원</p>
-      </div>
-
-      <!-- 상품 6 -->
-      <div class="card menu-item" data-category="brazil" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1587049352846-4a222e784422?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('브라질 산토스 200g', 13800)">담기</button>
-          </div>
-        </div>
-        <h4>브라질 산토스 200g</h4>
-        <p class="subtitle">Brazil Santos</p>
-        <p class="description">고소하고 부드러운<br>클래식한 맛</p>
-        <p class="price">13,800원</p>
-      </div>
-
-      <!-- 상품 7 -->
-      <div class="card menu-item" data-category="brazil" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('브라질 세하도 200g', 15200)">담기</button>
-          </div>
-        </div>
-        <h4>브라질 세하도 200g</h4>
-        <p class="subtitle">Brazil Cerrado</p>
-        <p class="description">초콜릿 향이 강한<br>풀바디 원두</p>
-        <p class="price">15,200원</p>
-      </div>
-
-      <!-- 상품 8 -->
-      <div class="card menu-item" data-category="ethiopia" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('여운 블렌드 원두 200g', 16500)">담기</button>
-          </div>
-        </div>
-        <h4>여운 블렌드 원두 200g</h4>
-        <p class="subtitle">Yeowun Signature Blend</p>
-        <p class="description">여운만의 시그니처<br>프리미엄 블렌딩</p>
-        <p class="price">16,500원</p>
-      </div>
-
-      <!-- 상품 9 -->
-      <div class="card menu-item" data-category="ethiopia" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('드립백 10개입 (블렌드)', 12000)">담기</button>
-          </div>
-        </div>
-        <h4>드립백 10개입 (블렌드)</h4>
-        <p class="subtitle">Drip Bag Blend</p>
-        <p class="description">언제 어디서나 간편하게<br>여운 커피를 즐기세요</p>
-        <p class="price">12,000원</p>
-      </div>
-
-      <!-- 상품 10 -->
-      <div class="card menu-item" data-category="ethiopia" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('드립백 10개입 (에티오피아)', 13500)">담기</button>
-          </div>
-        </div>
-        <h4>드립백 10개입 (에티오피아)</h4>
-        <p class="subtitle">Drip Bag Ethiopia</p>
-        <p class="description">예가체프 원두로 만든<br>프리미엄 드립백</p>
-        <p class="price">13,500원</p>
-      </div>
-
-      <!-- 상품 11 -->
-      <div class="card menu-item" data-category="colombia" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1497636577773-f1231844b336?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('콜드브루 원액 1L', 19800)">담기</button>
-          </div>
-        </div>
-        <h4>콜드브루 원액 1L</h4>
-        <p class="subtitle">Cold Brew Concentrate</p>
-        <p class="description">깊고 진한 맛의<br>시원한 콜드브루</p>
-        <p class="price">19,800원</p>
-      </div>
-
-      <!-- 상품 12 -->
-      <div class="card menu-item" data-category="brazil" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('디카페인 원두 200g', 15500)">담기</button>
-          </div>
-        </div>
-        <h4>디카페인 원두 200g</h4>
-        <p class="subtitle">Decaf Coffee Beans</p>
-        <p class="description">카페인은 줄이고<br>풍미는 그대로</p>
-        <p class="price">15,500원</p>
-      </div>
+      </c:forEach>
 
     </div>
   </div>

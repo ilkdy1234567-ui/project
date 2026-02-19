@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -53,11 +55,10 @@
     </div>
 
     <!-- 커피 메뉴 그리드 (4x4 = 16개) -->
-      <!-- 커피 1 - ICE -->
       <div class="menu-grid">
 
         <c:forEach var="item" items="${list}">
-          <div class="card menu-item" data-category="ice" data-aos="fade-up">
+          <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
 
             <div class="thumb-box">
               <div class="thumb-img"
@@ -72,9 +73,9 @@
             </div>
 
             <h4>${item.pname}</h4>
-            <p class="subtitle">ice americano</p>
+            <p class="subtitle">${item.subtitle}</p>
             <p class="description">${item.description}</p>
-            <p class="price">${item.price}원</p>
+            <p class="price"><fmt:formatNumber value="${item.price}" pattern="#,###" />원</p>
 
           </div>
         </c:forEach>

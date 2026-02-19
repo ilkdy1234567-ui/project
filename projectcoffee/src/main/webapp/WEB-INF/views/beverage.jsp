@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -54,229 +58,28 @@
     <!-- 음료 메뉴 그리드 (4x4 = 16개) -->
     <div class="menu-grid">
 
-      <!-- 음료 1 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('레몬 에이드', 4500)">담기</button>
-          </div>
-        </div>
-        <h4>레몬 에이드</h4>
-        <p class="subtitle">Lemon Ade</p>
-        <p class="description">상큼한 레몬의 청량감과<br>달콤함이 어우러진 시원한 음료</p>
-        <p class="price">4,500원</p>
-      </div>
+      <c:forEach var="item" items="${list}">
+        <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
 
-      <!-- 음료 2 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('자몽 에이드', 4700)">담기</button>
+          <div class="thumb-box">
+            <div class="thumb-img"
+                 style="background-image: url('${item.imgUrl}')">
+            </div>
+            <div class="overlay">
+              <button class="btn-add-cart"
+                      onclick="addToCart('${item.pname}', ${item.price})">
+                담기
+              </button>
+            </div>
           </div>
-        </div>
-        <h4>자몽 에이드</h4>
-        <p class="subtitle">Grapefruit Ade</p>
-        <p class="description">새콤달콤한 자몽의 맛과<br>상큼한 향이 가득한 음료</p>
-        <p class="price">4,700원</p>
-      </div>
 
-      <!-- 음료 3 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1587334207988-c2a0c7adf798?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('청포도 에이드', 4500)">담기</button>
-          </div>
-        </div>
-        <h4>청포도 에이드</h4>
-        <p class="subtitle">Green Grape Ade</p>
-        <p class="description">달콤한 청포도의 풍미가<br>가득한 시원한 에이드</p>
-        <p class="price">4,500원</p>
-      </div>
+          <h4>${item.pname}</h4>
+          <p class="subtitle">${item.subtitle}</p>
+          <p class="description">${item.description}</p>
+          <p class="price"><fmt:formatNumber value="${item.price}" pattern="#,###" />원</p>
 
-      <!-- 음료 4 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('복숭아 아이스티', 4300)">담기</button>
-          </div>
         </div>
-        <h4>복숭아 아이스티</h4>
-        <p class="subtitle">Peach Ice Tea</p>
-        <p class="description">달콤한 복숭아와 홍차의<br>완벽한 조화</p>
-        <p class="price">4,300원</p>
-      </div>
-
-      <!-- 음료 5 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('패션후르츠 에이드', 4800)">담기</button>
-          </div>
-        </div>
-        <h4>패션후르츠 에이드</h4>
-        <p class="subtitle">Passion Fruit Ade</p>
-        <p class="description">트로피컬한 패션후르츠의<br>진한 향과 맛</p>
-        <p class="price">4,800원</p>
-      </div>
-
-      <!-- 음료 6 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('라임 모히또', 5000)">담기</button>
-          </div>
-        </div>
-        <h4>라임 모히또</h4>
-        <p class="subtitle">Lime Mojito</p>
-        <p class="description">상큼한 라임과 민트의<br>청량한 무알콜 모히또</p>
-        <p class="price">5,000원</p>
-      </div>
-
-      <!-- 음료 7 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('망고 에이드', 4900)">담기</button>
-          </div>
-        </div>
-        <h4>망고 에이드</h4>
-        <p class="subtitle">Mango Ade</p>
-        <p class="description">달콤한 망고의 풍부한 맛과<br>부드러운 식감</p>
-        <p class="price">4,900원</p>
-      </div>
-
-      <!-- 음료 8 -->
-      <div class="card menu-item" data-category="ade" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('유자 허니 티', 4200)">담기</button>
-          </div>
-        </div>
-        <h4>유자 허니 티</h4>
-        <p class="subtitle">Yuzu Honey Tea</p>
-        <p class="description">달콤한 꿀과 향긋한 유자의<br>따뜻한 만남</p>
-        <p class="price">4,200원</p>
-      </div>
-
-      <!-- 음료 9 - 스무디 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('딸기 바나나 스무디', 5200)">담기</button>
-          </div>
-        </div>
-        <h4>딸기 바나나 스무디</h4>
-        <p class="subtitle">Strawberry Banana Smoothie</p>
-        <p class="description">달콤한 딸기와 바나나의<br>부드러운 조화</p>
-        <p class="price">5,200원</p>
-      </div>
-
-      <!-- 음료 10 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('망고 요거트 스무디', 5500)">담기</button>
-          </div>
-        </div>
-        <h4>망고 요거트 스무디</h4>
-        <p class="subtitle">Mango Yogurt Smoothie</p>
-        <p class="description">달콤한 망고와 상큼한 요거트의<br>건강한 조합</p>
-        <p class="price">5,500원</p>
-      </div>
-
-      <!-- 음료 11 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('블루베리 스무디', 5300)">담기</button>
-          </div>
-        </div>
-        <h4>블루베리 스무디</h4>
-        <p class="subtitle">Blueberry Smoothie</p>
-        <p class="description">신선한 블루베리로 만든<br>건강하고 맛있는 스무디</p>
-        <p class="price">5,300원</p>
-      </div>
-
-      <!-- 음료 12 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('딸기 스무디', 5000)">담기</button>
-          </div>
-        </div>
-        <h4>딸기 스무디</h4>
-        <p class="subtitle">Strawberry Smoothie</p>
-        <p class="description">달콤하고 상큼한 딸기의<br>풍부한 맛</p>
-        <p class="price">5,000원</p>
-      </div>
-
-      <!-- 음료 13 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1577805947697-89e18249d767?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('그린 스무디', 5400)">담기</button>
-          </div>
-        </div>
-        <h4>그린 스무디</h4>
-        <p class="subtitle">Green Smoothie</p>
-        <p class="description">신선한 채소와 과일로 만든<br>건강 스무디</p>
-        <p class="price">5,400원</p>
-      </div>
-
-      <!-- 음료 14 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('믹스베리 스무디', 5600)">담기</button>
-          </div>
-        </div>
-        <h4>믹스베리 스무디</h4>
-        <p class="subtitle">Mixed Berry Smoothie</p>
-        <p class="description">다양한 베리의 영양과 맛이<br>가득한 스무디</p>
-        <p class="price">5,600원</p>
-      </div>
-
-      <!-- 음료 15 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1615478503562-ec2d8aa0e24e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('초코 바나나 스무디', 5500)">담기</button>
-          </div>
-        </div>
-        <h4>초코 바나나 스무디</h4>
-        <p class="subtitle">Choco Banana Smoothie</p>
-        <p class="description">달콤한 초콜릿과 바나나의<br>환상적인 조합</p>
-        <p class="price">5,500원</p>
-      </div>
-
-      <!-- 음료 16 -->
-      <div class="card menu-item" data-category="smoothie" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('키위 스무디', 5200)">담기</button>
-          </div>
-        </div>
-        <h4>키위 스무디</h4>
-        <p class="subtitle">Kiwi Smoothie</p>
-        <p class="description">상큼한 키위의 비타민이<br>가득한 건강 음료</p>
-        <p class="price">5,200원</p>
-      </div>
+      </c:forEach>
 
     </div>
   </div>

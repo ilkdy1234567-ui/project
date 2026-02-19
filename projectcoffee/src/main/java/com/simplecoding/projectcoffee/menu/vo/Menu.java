@@ -23,4 +23,8 @@ public class Menu extends Criteria {     // 각 테이블에 대한 객체
     private int squantity;
     private int categoryId;      // CATEGORY_ID
     private MultipartFile fileData;
+    private String subtitle;
+    private String subCategory; // SUB_CATEGORY
+
+
 }

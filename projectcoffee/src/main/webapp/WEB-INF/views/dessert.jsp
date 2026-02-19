@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -50,234 +53,35 @@
       <button class="filter-btn" onclick="filterMenu('cake')">케이크</button>
       <button class="filter-btn" onclick="filterMenu('cookie')">쿠키</button>
       <button class="filter-btn" onclick="filterMenu('bread')">빵</button>
+
+
     </div>
 
     <!-- 디저트 메뉴 그리드 (4x4 = 16개) -->
     <div class="menu-grid">
 
-      <!-- 디저트 1 -->
-      <div class="card menu-item" data-category="cake" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('티라미수 케이크', 6500)">담기</button>
-          </div>
-        </div>
-        <h4>티라미수 케이크</h4>
-        <p class="subtitle">Tiramisu Cake</p>
-        <p class="description">진한 에스프레소와 마스카포네<br>치즈의 완벽한 조화</p>
-        <p class="price">6,500원</p>
-      </div>
+      <c:forEach var="item" items="${list}">
+        <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
 
-      <!-- 디저트 2 -->
-      <div class="card menu-item" data-category="cake" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('뉴욕 치즈케이크', 6200)">담기</button>
+          <div class="thumb-box">
+            <div class="thumb-img"
+                 style="background-image: url('${item.imgUrl}')">
+            </div>
+            <div class="overlay">
+              <button class="btn-add-cart"
+                      onclick="addToCart('${item.pname}', ${item.price})">
+                담기
+              </button>
+            </div>
           </div>
-        </div>
-        <h4>뉴욕 치즈케이크</h4>
-        <p class="subtitle">NY Cheesecake</p>
-        <p class="description">부드럽고 진한 크림치즈의<br>풍미가 가득한 클래식 케이크</p>
-        <p class="price">6,200원</p>
-      </div>
 
-      <!-- 디저트 3 -->
-      <div class="card menu-item" data-category="cake" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('초코 브라우니', 5800)">담기</button>
-          </div>
-        </div>
-        <h4>초코 브라우니</h4>
-        <p class="subtitle">Chocolate Brownie</p>
-        <p class="description">진한 초콜릿의 풍미와<br>촉촉한 식감</p>
-        <p class="price">5,800원</p>
-      </div>
+          <h4>${item.pname}</h4>
+          <p class="subtitle">${item.subtitle}</p>
+          <p class="description">${item.description}</p>
+          <p class="price"><fmt:formatNumber value="${item.price}" pattern="#,###" />원</p>
 
-      <!-- 디저트 4 -->
-      <div class="card menu-item" data-category="cake" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1616690710400-a16d146927c5?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('레드벨벳 케이크', 6800)">담기</button>
-          </div>
         </div>
-        <h4>레드벨벳 케이크</h4>
-        <p class="subtitle">Red Velvet Cake</p>
-        <p class="description">부드러운 크림치즈 프로스팅과<br>촉촉한 케이크 시트</p>
-        <p class="price">6,800원</p>
-      </div>
-
-      <!-- 디저트 5 -->
-      <div class="card menu-item" data-category="cake" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('당근 케이크', 6000)">담기</button>
-          </div>
-        </div>
-        <h4>당근 케이크</h4>
-        <p class="subtitle">Carrot Cake</p>
-        <p class="description">스파이스와 크림치즈 프로스팅의<br>조화로운 맛</p>
-        <p class="price">6,000원</p>
-      </div>
-
-      <!-- 디저트 6 -->
-      <div class="card menu-item" data-category="cake" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('말차 케이크', 6300)">담기</button>
-          </div>
-        </div>
-        <h4>말차 케이크</h4>
-        <p class="subtitle">Green Tea Cake</p>
-        <p class="description">진한 말차 향과 부드러운<br>크림의 조화</p>
-        <p class="price">6,300원</p>
-      </div>
-
-      <!-- 디저트 7 -->
-      <div class="card menu-item" data-category="cookie" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('초코칩 쿠키', 3500)">담기</button>
-          </div>
-        </div>
-        <h4>초코칩 쿠키</h4>
-        <p class="subtitle">Chocolate Chip Cookie</p>
-        <p class="description">바삭하고 고소한 쿠키에<br>달콤한 초코칩이 가득</p>
-        <p class="price">3,500원</p>
-      </div>
-
-      <!-- 디저트 8 -->
-      <div class="card menu-item" data-category="cookie" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('마카롱 5입', 8500)">담기</button>
-          </div>
-        </div>
-        <h4>마카롱 5입</h4>
-        <p class="subtitle">Macaron Set</p>
-        <p class="description">다양한 맛의 프랑스식<br>정통 마카롱</p>
-        <p class="price">8,500원</p>
-      </div>
-
-      <!-- 디저트 9 -->
-      <div class="card menu-item" data-category="cookie" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1590080876876-a38170c67bd6?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('버터 쿠키', 3200)">담기</button>
-          </div>
-        </div>
-        <h4>버터 쿠키</h4>
-        <p class="subtitle">Butter Cookie</p>
-        <p class="description">고급 버터로 만든<br>고소하고 바삭한 쿠키</p>
-        <p class="price">3,200원</p>
-      </div>
-
-      <!-- 디저트 10 -->
-      <div class="card menu-item" data-category="cookie" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1584473457409-ae5c91632736?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('오트밀 쿠키', 3800)">담기</button>
-          </div>
-        </div>
-        <h4>오트밀 쿠키</h4>
-        <p class="subtitle">Oatmeal Cookie</p>
-        <p class="description">건강한 오트밀로 만든<br>고소한 쿠키</p>
-        <p class="price">3,800원</p>
-      </div>
-
-      <!-- 디저트 11 -->
-      <div class="card menu-item" data-category="bread" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('크루아상', 3800)">담기</button>
-          </div>
-        </div>
-        <h4>크루아상</h4>
-        <p class="subtitle">Croissant</p>
-        <p class="description">바삭한 겉면과 부드러운 속<br>프랑스 정통 크루아상</p>
-        <p class="price">3,800원</p>
-      </div>
-
-      <!-- 디저트 12 -->
-      <div class="card menu-item" data-category="bread" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('스콘', 4200)">담기</button>
-          </div>
-        </div>
-        <h4>스콘</h4>
-        <p class="subtitle">Scone</p>
-        <p class="description">부드럽고 담백한 맛<br>커피와 완벽한 궁합</p>
-        <p class="price">4,200원</p>
-      </div>
-
-      <!-- 디저트 13 -->
-      <div class="card menu-item" data-category="bread" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('베이글', 4000)">담기</button>
-          </div>
-        </div>
-        <h4>베이글</h4>
-        <p class="subtitle">Bagel</p>
-        <p class="description">쫄깃한 식감과<br>고소한 맛의 베이글</p>
-        <p class="price">4,000원</p>
-      </div>
-
-      <!-- 디저트 14 -->
-      <div class="card menu-item" data-category="bread" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1607478900766-efe13248b125?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('식빵 (1근)', 5500)">담기</button>
-          </div>
-        </div>
-        <h4>식빵 (1근)</h4>
-        <p class="subtitle">White Bread</p>
-        <p class="description">부드럽고 촉촉한<br>매일 아침 구운 신선한 식빵</p>
-        <p class="price">5,500원</p>
-      </div>
-
-      <!-- 디저트 15 -->
-      <div class="card menu-item" data-category="bread" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('마늘바게트', 4500)">담기</button>
-          </div>
-        </div>
-        <h4>마늘바게트</h4>
-        <p class="subtitle">Garlic Baguette</p>
-        <p class="description">고소한 마늘버터가 듬뿍<br>바삭한 바게트</p>
-        <p class="price">4,500원</p>
-      </div>
-
-      <!-- 디저트 16 -->
-      <div class="card menu-item" data-category="bread" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('크림치즈 베이글', 4800)">담기</button>
-          </div>
-        </div>
-        <h4>크림치즈 베이글</h4>
-        <p class="subtitle">Cream Cheese Bagel</p>
-        <p class="description">부드러운 크림치즈와<br>쫄깃한 베이글의 조화</p>
-        <p class="price">4,800원</p>
-      </div>
+      </c:forEach>
 
     </div>
   </div>
