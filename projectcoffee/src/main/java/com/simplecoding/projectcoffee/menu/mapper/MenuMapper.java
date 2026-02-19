@@ -10,10 +10,12 @@ import java.util.List;
 
 public interface MenuMapper {
 
-        List<Menu> selectMenuList(Criteria criteria);   //전체조회
+        List<Menu> selectMenuList(Criteria criteria);
+        List<Menu> selectMenuByCategory(int categoryId);//전체조회
         int selectMenuListTotCnt(Criteria criteria);  //총개수 구하기
         int insert(Menu product);  //추가
         int delete(String uuid);
+
 
     List<?> selectMenulist(Criteria criteria);
 }

@@ -241,3 +241,7 @@ function closeContactModal() {
     document.getElementById('contact-type').value = '';
     document.getElementById('contact-content').value = '';
 }
+
+
+
+

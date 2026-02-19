@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -54,145 +57,28 @@
     <!-- 굿즈 상품 그리드 (10개) -->
     <div class="menu-grid">
 
-      <!-- 상품 1 -->
-      <div class="card menu-item" data-category="mug" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1514481538271-cf9f99627ab4?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('여운 시그니처 머그컵', 18000)">담기</button>
-          </div>
-        </div>
-        <h4>여운 시그니처 머그컵</h4>
-        <p class="subtitle">Yeowun Signature Mug</p>
-        <p class="description">여운 로고가 새겨진<br>프리미엄 세라믹 머그컵</p>
-        <p class="price">18,000원</p>
-      </div>
+      <c:forEach var="item" items="${list}">
+        <div class="card menu-item" data-category="ice" data-aos="fade-up">
 
-      <!-- 상품 2 -->
-      <div class="card menu-item" data-category="mug" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('미니멀 화이트 머그', 15000)">담기</button>
+          <div class="thumb-box">
+            <div class="thumb-img"
+                 style="background-image: url('${item.imgUrl}')">
+            </div>
+            <div class="overlay">
+              <button class="btn-add-cart"
+                      onclick="addToCart('${item.pname}', ${item.price})">
+                담기
+              </button>
+            </div>
           </div>
-        </div>
-        <h4>미니멀 화이트 머그</h4>
-        <p class="subtitle">Minimal White Mug</p>
-        <p class="description">심플하고 세련된 디자인<br>데일리 머그컵</p>
-        <p class="price">15,000원</p>
-      </div>
 
-      <!-- 상품 3 -->
-      <div class="card menu-item" data-category="mug" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('더블월 글라스 머그', 22000)">담기</button>
-          </div>
-        </div>
-        <h4>더블월 글라스 머그</h4>
-        <p class="subtitle">Double Wall Glass Mug</p>
-        <p class="description">보온 보냉 효과 탁월한<br>프리미엄 글라스 머그</p>
-        <p class="price">22,000원</p>
-      </div>
+          <h4>${item.pname}</h4>
+          <p class="subtitle">${item.subtitle}</p>
+          <p class="description">${item.description}</p>
+          <p class="price"><fmt:formatNumber value="${item.price}" pattern="#,###" />원</p>
 
-      <!-- 상품 4 -->
-      <div class="card menu-item" data-category="tumbler" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('스테인리스 텀블러 473ml', 28000)">담기</button>
-          </div>
         </div>
-        <h4>스테인리스 텀블러 473ml</h4>
-        <p class="subtitle">Stainless Steel Tumbler</p>
-        <p class="description">6시간 보온/보냉<br>프리미엄 텀블러</p>
-        <p class="price">28,000원</p>
-      </div>
-
-      <!-- 상품 5 -->
-      <div class="card menu-item" data-category="tumbler" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('콜드컵 텀블러 650ml', 25000)">담기</button>
-          </div>
-        </div>
-        <h4>콜드컵 텀블러 650ml</h4>
-        <p class="subtitle">Cold Cup Tumbler</p>
-        <p class="description">시원한 아이스 음료에 딱!<br>재사용 가능한 콜드컵</p>
-        <p class="price">25,000원</p>
-      </div>
-
-      <!-- 상품 6 -->
-      <div class="card menu-item" data-category="tumbler" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('휴대용 미니 텀블러 350ml', 19000)">담기</button>
-          </div>
-        </div>
-        <h4>휴대용 미니 텀블러 350ml</h4>
-        <p class="subtitle">Mini Portable Tumbler</p>
-        <p class="description">가방에 쏙 들어가는<br>컴팩트 사이즈</p>
-        <p class="price">19,000원</p>
-      </div>
-
-      <!-- 상품 7 -->
-      <div class="card menu-item" data-category="tool" data-aos="fade-up" data-aos-delay="100">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('세라믹 V60 드리퍼', 32000)">담기</button>
-          </div>
-        </div>
-        <h4>세라믹 V60 드리퍼</h4>
-        <p class="subtitle">Ceramic V60 Dripper</p>
-        <p class="description">핸드드립의 정석<br>프리미엄 세라믹 드리퍼</p>
-        <p class="price">32,000원</p>
-      </div>
-
-      <!-- 상품 8 -->
-      <div class="card menu-item" data-category="tool" data-aos="fade-up" data-aos-delay="150">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('핸드드립 서버 600ml', 24000)">담기</button>
-          </div>
-        </div>
-        <h4>핸드드립 서버 600ml</h4>
-        <p class="subtitle">Hand Drip Server</p>
-        <p class="description">내열 유리 재질<br>눈금 표시로 편리한 사용</p>
-        <p class="price">24,000원</p>
-      </div>
-
-      <!-- 상품 9 -->
-      <div class="card menu-item" data-category="tool" data-aos="fade-up">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('핸드밀 그라인더', 45000)">담기</button>
-          </div>
-        </div>
-        <h4>핸드밀 그라인더</h4>
-        <p class="subtitle">Hand Mill Grinder</p>
-        <p class="description">세라믹 날로 균일한 분쇄<br>휴대 가능한 핸드밀</p>
-        <p class="price">45,000원</p>
-      </div>
-
-      <!-- 상품 10 -->
-      <div class="card menu-item" data-category="tool" data-aos="fade-up" data-aos-delay="50">
-        <div class="thumb-box">
-          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400')"></div>
-          <div class="overlay">
-            <button class="btn-add-cart" onclick="addToCart('밀크 프로서 세트', 38000)">담기</button>
-          </div>
-        </div>
-        <h4>밀크 프로서 세트</h4>
-        <p class="subtitle">Milk Frother Set</p>
-        <p class="description">라떼 아트를 위한<br>전동 프로서와 피처 세트</p>
-        <p class="price">38,000원</p>
-      </div>
+      </c:forEach>
 
     </div>
   </div>

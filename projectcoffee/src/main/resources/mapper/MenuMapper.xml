@@ -20,13 +20,22 @@
     </select>
     <insert id="insert"
             parameterType="com.simplecoding.projectcoffee.menu.vo.Menu">
-        INSERT INTO MENU(P_UUID,P_NAME,DESCRIPTION,PRICE,IMG_URL,IS_AVAILABLE,C_DATE,SQUANTITY,CATEGORY_ID)
-        VALUES(#{uuid},#{pname},#{description},#{price},#{imgUrl},#{isAvailable},SYSDATE,#{squantity},#{categoryId})
+        INSERT INTO MENU(P_UUID,P_NAME,DESCRIPTION,PRICE,IMG_URL,IS_AVAILABLE,C_DATE,SQUANTITY,CATEGORY_ID,SUBTITLE)
+        VALUES(#{uuid},#{pname},#{description},#{price},#{imgUrl},#{isAvailable},SYSDATE,#{squantity},#{categoryId},#{sebtitle})
     </insert>
     <delete id="delete"
             parameterType="String">
         DELETE MENU WHERE P_UUID=#{uuid}
     </delete>
+    <select id="selectMenuByCategory"
+            parameterType="int"
+            resultType="com.simplecoding.projectcoffee.menu.vo.Menu">
+
+        SELECT *
+        FROM MENU
+        WHERE CATEGORY_ID = #{categoryId}
+
+    </select>
 </mapper>
 
 
