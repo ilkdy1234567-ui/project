@@ -50,7 +50,7 @@
 
     <div class="menu-grid">
       <c:forEach var="item" items="${mainMenus}">
-        <div class="card">
+        <div class="card" data-aos="fade-up">
           <div class="thumb-box">
             <div class="thumb-img"
                  style="background-image: url('${item.imgUrl}')"></div>
@@ -105,11 +105,9 @@
     <h2 style="color:#ddb86e; text-align:center; font-family:'Playfair Display'; font-size:2.5rem; margin-bottom:50px;">
       YEOWUN Goods
     </h2>
-
     <div class="goods-grid">
       <c:forEach var="item" items="${mainGoods}">
-        <div class="card menu-item" data-aos="fade-up">
-
+        <div class="card" data-aos="fade-up">
           <div class="thumb-box" style="height:220px;">
             <div class="thumb-img" style="background-image:url('${item.imgUrl}')"></div>
 
