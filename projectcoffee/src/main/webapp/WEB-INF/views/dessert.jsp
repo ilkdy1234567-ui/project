@@ -53,13 +53,15 @@
       <button class="filter-btn" onclick="filterMenu('cake')">케이크</button>
       <button class="filter-btn" onclick="filterMenu('cookie')">쿠키</button>
       <button class="filter-btn" onclick="filterMenu('bread')">빵</button>
+
+
     </div>
 
     <!-- 디저트 메뉴 그리드 (4x4 = 16개) -->
     <div class="menu-grid">
 
       <c:forEach var="item" items="${list}">
-        <div class="card menu-item" data-category="all" data-aos="fade-up">
+        <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
 
           <div class="thumb-box">
             <div class="thumb-img"

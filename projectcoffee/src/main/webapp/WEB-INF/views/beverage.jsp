@@ -59,7 +59,7 @@
     <div class="menu-grid">
 
       <c:forEach var="item" items="${list}">
-        <div class="card menu-item" data-category="ice" data-aos="fade-up">
+        <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
 
           <div class="thumb-box">
             <div class="thumb-img"

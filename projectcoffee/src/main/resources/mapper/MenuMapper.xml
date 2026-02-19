@@ -3,39 +3,67 @@
 
 <mapper namespace="com.simplecoding.projectcoffee.menu.mapper.MenuMapper">
 
-    <select id="selectMenuList"
-            parameterType="com.simplecoding.projectcoffee.common.Criteria"
-            resultType="com.simplecoding.projectcoffee.menu.vo.Menu">
-        SELECT * FROM MENU
-        WHERE P_NAME LIKE '%'|| #{searchKeyword} ||'%'
-        OFFSET #{offset} ROWS
-            FETCH NEXT #{size} ROWS ONLY
-    </select>
-
-    <select id="selectMenuListTotCnt"
-            parameterType="com.simplecoding.projectcoffee.common.Criteria"
-            resultType="int">
-        SELECT COUNT(*) FROM MENU
-        WHERE P_NAME LIKE '%' || #{searchKeyword} || '%'
-    </select>
-    <insert id="insert"
-            parameterType="com.simplecoding.projectcoffee.menu.vo.Menu">
-        INSERT INTO MENU(P_UUID,P_NAME,DESCRIPTION,PRICE,IMG_URL,IS_AVAILABLE,C_DATE,SQUANTITY,CATEGORY_ID,SUBTITLE)
-        VALUES(#{uuid},#{pname},#{description},#{price},#{imgUrl},#{isAvailable},SYSDATE,#{squantity},#{categoryId},#{sebtitle})
-    </insert>
-    <delete id="delete"
-            parameterType="String">
-        DELETE MENU WHERE P_UUID=#{uuid}
-    </delete>
+    <!-- 큰 카테고리(커피/음료/디저트/샵/굿즈) -->
     <select id="selectMenuByCategory"
             parameterType="int"
             resultType="com.simplecoding.projectcoffee.menu.vo.Menu">
-
-        SELECT *
+        SELECT
+            P_UUID,
+            P_NAME,
+            SUBTITLE,
+            SUB_CATEGORY,
+            DESCRIPTION,
+            PRICE,
+            IMG_URL,
+            IS_AVAILABLE,
+            C_DATE,
+            SQUANTITY,
+            CATEGORY_ID
         FROM MENU
         WHERE CATEGORY_ID = #{categoryId}
-
+        ORDER BY C_DATE DESC
     </select>
+
+    <!-- 작은 카테고리(HOT/ICE, cake/cookie/bread 등) -->
+    <select id="selectMenuByCategoryAndSub"
+            resultType="com.simplecoding.projectcoffee.menu.vo.Menu">
+        SELECT
+            P_UUID,
+            P_NAME,
+            SUBTITLE,
+            SUB_CATEGORY,
+            DESCRIPTION,
+            PRICE,
+            IMG_URL,
+            IS_AVAILABLE,
+            C_DATE,
+            SQUANTITY,
+            CATEGORY_ID
+        FROM MENU
+        WHERE CATEGORY_ID = #{categoryId}
+          AND LOWER(TRIM(SUB_CATEGORY)) = LOWER(TRIM(#{subCategory}))
+        ORDER BY C_DATE DESC
+    </select>
+    <!-- 메인 화면: 메뉴 (1,2,3 섞어서 8개) -->
+    <select id="selectMainMenu"
+            resultType="com.simplecoding.projectcoffee.menu.vo.Menu">
+        SELECT *
+        FROM MENU
+        WHERE IN_MENU = 'Y'
+          AND CATEGORY_ID IN (1,2,3)
+        ORDER BY C_DATE DESC
+            FETCH FIRST 8 ROWS ONLY
+    </select>
+
+    <!-- 메인 화면: 굿즈 (4,5 섞어서 5개) -->
+    <select id="selectMainGoods"
+            resultType="com.simplecoding.projectcoffee.menu.vo.Menu">
+        SELECT *
+        FROM MENU
+        WHERE IN_MENU = 'Y'
+          AND CATEGORY_ID IN (4,5)
+        ORDER BY C_DATE DESC
+            FETCH FIRST 5 ROWS ONLY
+    </select>
+
 </mapper>
-
-
