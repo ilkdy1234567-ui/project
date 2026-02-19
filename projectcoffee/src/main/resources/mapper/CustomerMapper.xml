@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.projectcoffee.customer.mapper.CustomerMapper">
+
+    <insert id="insert"
+            parameterType="com.simplecoding.projectcoffee.customer.vo.Customer">
+        INSERT INTO CUSTOMER (CU_NUMBER)
+        VALUES (#{cuNumber})
+    </insert>
+
+    <delete id="delete"
+            parameterType="String">
+        DELETE FROM CUSTOMER
+        WHERE CU_NUMBER = #{cuNumber}
+    </delete>
+
+</mapper>
+
+
