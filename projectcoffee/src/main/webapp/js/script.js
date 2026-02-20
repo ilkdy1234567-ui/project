@@ -17,12 +17,25 @@ function addToCart(name, price) {
     } else {
         cart.push({ name, price, qty: 1 });
     }
+    saveCart();
     updateCartUI();
     
     // 장바구니 대시보드를 바로 열기 (확실하게!)
     const dashboard = document.getElementById('cart-dashboard');
     dashboard.classList.add('active');
 }
+
+// ==================== 새로고침 해도 장바구니 유지 ==============
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+function loadCart() {
+    cart = JSON.parse(localStorage.getItem("cart") || "[]");
+}
+document.addEventListener("DOMContentLoaded", () => {
+    loadCart();
+    updateCartUI();
+});
 
 // ==================== 장바구니 수량 변경 ====================
 function changeQty(name, delta) {
