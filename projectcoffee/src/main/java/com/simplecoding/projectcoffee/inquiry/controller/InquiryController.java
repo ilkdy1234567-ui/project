@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/contact")
+@RequestMapping("/Inquiry")
 public class InquiryController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class InquiryController {
         List<Inquiry> list = inquiryService.getMyInquiries(cuNumber);
         model.addAttribute("inquiryList", list);
 
-        return "contact";
+        return "Inquiry";
     }
 
     // 문의글 작성 처리
@@ -45,6 +45,6 @@ public class InquiryController {
         inquiry.setCuNumber(cuNumber);
         inquiryService.createInquiry(inquiry);
 
-        return "redirect:/contact";
+        return "redirect:/Inquiry";
     }
 }

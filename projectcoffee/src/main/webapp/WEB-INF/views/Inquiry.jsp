@@ -61,17 +61,17 @@
 
                     <div>
                         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
-                            <i class="fas fa-envelope" style="color: var(--accent-gold); margin-right: 5px;"></i> 이메일
+                            <i class="fas fa-envelope" style="color: var(--accent-gold); margin-right: 5px;"></i> 이메일(선택)
                         </label>
                         <input type="email" id="contact-email" placeholder="example@email.com" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
                     </div>
 
-                    <div>
-                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
-                            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 5px;"></i> 연락처
-                        </label>
-                        <input type="tel" id="contact-phone" placeholder="010-0000-0000" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
-                    </div>
+                    <input type="hidden" name="cuNumber" value="${sessionScope.cuNumber}">
+
+                    <p style="color: #999; font-size: 0.9rem; margin-bottom: 20px;">
+                        <i class="fas fa-info-circle" style="color: var(--accent-gold);"></i>
+                        입장 시 입력하신 <strong>${sessionScope.cuNumber}</strong> 번호로 문의가 등록됩니다.
+                    </p>
 
                     <div>
                         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
