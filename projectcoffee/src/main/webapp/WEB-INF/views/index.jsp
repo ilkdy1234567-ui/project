@@ -132,6 +132,19 @@
   </div>
 </section>
 
+<div class="order-modal" id="entranceModal" style="display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;">
+  <div class="order-paper" style="width: 400px; text-align: center;">
+    <h3 style="letter-spacing: 5px;">GUEST CHECK-IN</h3>
+    <p style="margin: 20px 0; color: #666;">원활한 서비스 이용을 위해<br>연락처를 입력해 주세요.</p>
+
+    <form action="/customer/login" method="post">
+      <div class="order-form-group">
+        <input type="text" name="cuNumber" class="order-input" placeholder="010-0000-0000" required style="text-align: center; font-size: 1.2rem;">
+      </div>
+      <button type="submit" class="btn-final-order">여운 커피 입장하기</button>
+    </form>
+  </div>
+</div>
 
 <!-- 푸터 -->
 <footer class="main-footer">
