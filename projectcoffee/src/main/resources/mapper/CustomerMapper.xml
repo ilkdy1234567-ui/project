@@ -3,6 +3,14 @@
 
 <mapper namespace="com.simplecoding.projectcoffee.customer.mapper.CustomerMapper">
 
+    <select id="selectCustomer"
+            parameterType="String"
+            resultType="com.simplecoding.projectcoffee.customer.vo.Customer">
+        SELECT CU_NUMBER
+        FROM CUSTOMER
+        WHERE CU_NUMBER = #{cuNumber}
+    </select>
+
     <insert id="insert"
             parameterType="com.simplecoding.projectcoffee.customer.vo.Customer">
         INSERT INTO CUSTOMER (CU_NUMBER)
@@ -16,5 +24,3 @@
     </delete>
 
 </mapper>
-
-
