@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.projectcoffee.inquiry.mapper.InquiryMapper">
+
+    <select id="selectMyInquiryList" parameterType="String" resultType="com.simplecoding.projectcoffee.inquiry.vo.Inquiry">
+        SELECT * FROM INQUIRY
+        WHERE CU_NUMBER = #{cuNumber}
+        ORDER BY C_DATE DESC
+    </select>
+
+    <insert id="insertInquiry" parameterType="com.simplecoding.projectcoffee.inquiry.vo.Inquiry">
+        INSERT INTO INQUIRY (INQUIRY_ID, TITLE, CONT, INQ_STATUS, C_DATE, CU_NUMBER)
+        VALUES (INQUIRY_SEQ.NEXTVAL, #{title}, #{cont}, '대기', SYSDATE, #{cuNumber})
+    </insert>
+
+    <select id="selectInquiryDetail" parameterType="int" resultType="com.simplecoding.projectcoffee.inquiry.vo.Inquiry">
+        SELECT * FROM INQUIRY WHERE INQUIRY_ID = #{inquiryId}
+    </select>
+
+</mapper>
