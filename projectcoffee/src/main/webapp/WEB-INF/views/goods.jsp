@@ -22,12 +22,80 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- 커스텀 CSS -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
 <!-- 상단 네비게이션 -->
-<%--모바일 사이드바--%>
-<jsp:include page="/common/header.jsp"></jsp:include>
+<nav id="navbar">
+  <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="/brand.html">여운 스토리</a></div></li>
+    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="/menu.html">커피 (Coffee)</a><a href="/beverage.html">음료 (Beverage)</a><a href="./dessert.html">디저트 (Dessert)</a></div></li>
+    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="/shop.html">원두/드립백</a><a href="/goods.html">홈카페 굿즈</a></div></li>
+    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="/store.html">매장 찾기</a></div></li>
+    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="/notice.html">공지사항</a><a href=./contact.html">1:1 문의</a></div></li>
+  </ul>
+
+  <a href="./index.html" class="logo">YEOWUN<span>餘韻</span></a>
+
+  <div class="nav-sns">
+    <div class="sns-box" id="user-icon-btn" onclick="handleUserIcon()" style="cursor:pointer;">
+      <i class="fas fa-user" id="user-icon"></i>
+      <span class="sns-tooltip" id="user-tooltip">로그인</span>
+    </div>
+    <div class="sns-box"><i class="fab fa-instagram"></i><span class="sns-tooltip">Instagram</span></div>
+    <div class="sns-box"><i class="fas fa-comment"></i><span class="sns-tooltip">KakaoTalk</span></div>
+    <div class="sns-box"><i class="fab fa-facebook-f"></i><span class="sns-tooltip">Facebook</span></div>
+  </div>
+</nav>
+
+<!-- 모바일 사이드바 -->
+<div class="mobile-sidebar" id="mobileSidebar">
+  <div class="mobile-sidebar-close" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
+  <ul>
+    <li>
+      <a href="#" style="cursor: default;">브랜드</a>
+      <div class="mobile-submenu">
+        <a href="/brand.html">여운 스토리</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" style="cursor: default;">메뉴</a>
+      <div class="mobile-submenu">
+        <a href="/menu.html">커피 (Coffee)</a>
+        <a href="/beverage.html">음료 (Beverage)</a>
+        <a href="/dessert.html">디저트 (Dessert)</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" style="cursor: default;">온라인 숍</a>
+      <div class="mobile-submenu">
+        <a href="/shop.html">원두/드립백</a>
+        <a href="/goods.html">홈카페 굿즈</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" style="cursor: default;">매장안내</a>
+      <div class="mobile-submenu">
+        <a href="/store.html">매장 찾기</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" style="cursor: default;">고객지원</a>
+      <div class="mobile-submenu">
+        <a href="/notice.html">공지사항</a>
+        <a href="/contact.html">1:1 문의</a>
+      </div>
+    </li>
+  </ul>
+  <div class="footer-sns-icons" style="margin-top: 40px; justify-content: flex-start;">
+    <a href="#" class="f-icon"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="f-icon"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="f-icon"><i class="fas fa-comment"></i></a>
+  </div>
+</div>
 
 <!-- 페이지 헤더 (타이틀 배너) -->
 <header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1514481538271-cf9f99627ab4?w=1200'); background-position: center;">
@@ -35,7 +103,7 @@
     <h1 data-aos="fade-up">HOME CAFE GOODS</h1>
     <p data-aos="fade-up" data-aos-delay="100">여운의 감성을 담은 홈카페 제품</p>
     <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-      <a href="/">HOME</a> <i class="fas fa-chevron-right"></i>
+      <a href="./index.html">HOME</a> <i class="fas fa-chevron-right"></i>
       <a href="#">온라인 숍</a> <i class="fas fa-chevron-right"></i>
       <span>홈카페 굿즈</span>
     </div>
@@ -57,28 +125,145 @@
     <!-- 굿즈 상품 그리드 (10개) -->
     <div class="menu-grid">
 
-      <c:forEach var="item" items="${list}">
-        <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
-
-          <div class="thumb-box">
-            <div class="thumb-img"
-                 style="background-image: url('${item.imgUrl}')">
-            </div>
-            <div class="overlay">
-              <button class="btn-add-cart"
-                      onclick="addToCart('${item.pname}', ${item.price})">
-                담기
-              </button>
-            </div>
+      <!-- 상품 1 -->
+      <div class="card menu-item" data-category="mug" data-aos="fade-up">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1514481538271-cf9f99627ab4?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('여운 시그니처 머그컵', 18000)">담기</button>
           </div>
-
-          <h4>${item.pname}</h4>
-          <p class="subtitle">${item.subtitle}</p>
-          <p class="description">${item.description}</p>
-          <p class="price"><fmt:formatNumber value="${item.price}" pattern="#,###" />원</p>
-
         </div>
-      </c:forEach>
+        <h4>여운 시그니처 머그컵</h4>
+        <p class="subtitle">Yeowun Signature Mug</p>
+        <p class="description">여운 로고가 새겨진<br>프리미엄 세라믹 머그컵</p>
+        <p class="price">18,000원</p>
+      </div>
+
+      <!-- 상품 2 -->
+      <div class="card menu-item" data-category="mug" data-aos="fade-up" data-aos-delay="50">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('미니멀 화이트 머그', 15000)">담기</button>
+          </div>
+        </div>
+        <h4>미니멀 화이트 머그</h4>
+        <p class="subtitle">Minimal White Mug</p>
+        <p class="description">심플하고 세련된 디자인<br>데일리 머그컵</p>
+        <p class="price">15,000원</p>
+      </div>
+
+      <!-- 상품 3 -->
+      <div class="card menu-item" data-category="mug" data-aos="fade-up" data-aos-delay="100">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('더블월 글라스 머그', 22000)">담기</button>
+          </div>
+        </div>
+        <h4>더블월 글라스 머그</h4>
+        <p class="subtitle">Double Wall Glass Mug</p>
+        <p class="description">보온 보냉 효과 탁월한<br>프리미엄 글라스 머그</p>
+        <p class="price">22,000원</p>
+      </div>
+
+      <!-- 상품 4 -->
+      <div class="card menu-item" data-category="tumbler" data-aos="fade-up" data-aos-delay="150">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('스테인리스 텀블러 473ml', 28000)">담기</button>
+          </div>
+        </div>
+        <h4>스테인리스 텀블러 473ml</h4>
+        <p class="subtitle">Stainless Steel Tumbler</p>
+        <p class="description">6시간 보온/보냉<br>프리미엄 텀블러</p>
+        <p class="price">28,000원</p>
+      </div>
+
+      <!-- 상품 5 -->
+      <div class="card menu-item" data-category="tumbler" data-aos="fade-up">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('콜드컵 텀블러 650ml', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>콜드컵 텀블러 650ml</h4>
+        <p class="subtitle">Cold Cup Tumbler</p>
+        <p class="description">시원한 아이스 음료에 딱!<br>재사용 가능한 콜드컵</p>
+        <p class="price">25,000원</p>
+      </div>
+
+      <!-- 상품 6 -->
+      <div class="card menu-item" data-category="tumbler" data-aos="fade-up" data-aos-delay="50">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('휴대용 미니 텀블러 350ml', 19000)">담기</button>
+          </div>
+        </div>
+        <h4>휴대용 미니 텀블러 350ml</h4>
+        <p class="subtitle">Mini Portable Tumbler</p>
+        <p class="description">가방에 쏙 들어가는<br>컴팩트 사이즈</p>
+        <p class="price">19,000원</p>
+      </div>
+
+      <!-- 상품 7 -->
+      <div class="card menu-item" data-category="tool" data-aos="fade-up" data-aos-delay="100">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('세라믹 V60 드리퍼', 32000)">담기</button>
+          </div>
+        </div>
+        <h4>세라믹 V60 드리퍼</h4>
+        <p class="subtitle">Ceramic V60 Dripper</p>
+        <p class="description">핸드드립의 정석<br>프리미엄 세라믹 드리퍼</p>
+        <p class="price">32,000원</p>
+      </div>
+
+      <!-- 상품 8 -->
+      <div class="card menu-item" data-category="tool" data-aos="fade-up" data-aos-delay="150">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('핸드드립 서버 600ml', 24000)">담기</button>
+          </div>
+        </div>
+        <h4>핸드드립 서버 600ml</h4>
+        <p class="subtitle">Hand Drip Server</p>
+        <p class="description">내열 유리 재질<br>눈금 표시로 편리한 사용</p>
+        <p class="price">24,000원</p>
+      </div>
+
+      <!-- 상품 9 -->
+      <div class="card menu-item" data-category="tool" data-aos="fade-up">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('핸드밀 그라인더', 45000)">담기</button>
+          </div>
+        </div>
+        <h4>핸드밀 그라인더</h4>
+        <p class="subtitle">Hand Mill Grinder</p>
+        <p class="description">세라믹 날로 균일한 분쇄<br>휴대 가능한 핸드밀</p>
+        <p class="price">45,000원</p>
+      </div>
+
+      <!-- 상품 10 -->
+      <div class="card menu-item" data-category="tool" data-aos="fade-up" data-aos-delay="50">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('밀크 프로서 세트', 38000)">담기</button>
+          </div>
+        </div>
+        <h4>밀크 프로서 세트</h4>
+        <p class="subtitle">Milk Frother Set</p>
+        <p class="description">라떼 아트를 위한<br>전동 프로서와 피처 세트</p>
+        <p class="price">38,000원</p>
+      </div>
 
     </div>
   </div>
@@ -137,6 +322,12 @@
     <div style="background:var(--text-dark); color:#fff; padding:15px; text-align:center; font-weight:700;">SHOPPING BAG</div>
     <div id="cart-items-list"></div>
     <div style="padding:20px; border-top:1px solid #eee;">
+      <div style="margin-bottom:15px;">
+        <label style="display:block; margin-bottom:8px; font-size:0.9rem; color:#666;">
+          <i class="fas fa-phone"></i> 연락처
+        </label>
+        <input type="tel" id="cart-phone" placeholder="010-0000-0000" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:0.95rem;">
+      </div>
       <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700;"><span>최종 합계</span><span id="total-price-display" style="color:var(--accent-gold);">0원</span></div>
       <button class="btn-order-now" onclick="processOrder()">주문하기</button>
     </div>
@@ -185,7 +376,7 @@
 
 <!-- 외부 스크립트 -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/js/script.js"></script>
+<script src="../js/script.js"></script>
 
 <!-- 메뉴 필터링 스크립트 -->
 <script>
@@ -231,6 +422,32 @@
     }, 400);
   }
 </script>
+
+
+<!-- 로그인 모달 -->
+<div class="order-modal" id="loginModal">
+  <div class="order-paper" style="max-width:400px; margin:auto;">
+    <div style="text-align:center; margin-bottom:25px;">
+      <div style="width:60px; height:60px; background:var(--accent-gold); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+        <i class="fas fa-user" style="color:#fff; font-size:1.4rem;"></i>
+      </div>
+      <h3 style="margin:0; font-size:1.3rem; letter-spacing:3px;">LOGIN</h3>
+      <p style="color:#999; font-size:0.85rem; margin-top:8px;">전화번호로 간편하게 로그인하세요</p>
+    </div>
+    <div class="order-form-group">
+      <label><i class="fas fa-phone"></i> 전화번호</label>
+      <input type="tel" class="order-input" id="login-phone" placeholder="010-0000-0000 (숫자만 입력)" maxlength="13" oninput="formatPhoneInput(this)">
+    </div>
+    <button class="btn-final-order" onclick="loginWithPhone()">로그인</button>
+    <p onclick="closeLoginModal()" style="text-align:center; margin-top:15px; font-size:0.8rem; color:#aaa; cursor:pointer; text-decoration:underline;">닫기</p>
+  </div>
+</div>
+
+<!-- 토스트 알림 -->
+<div id="login-toast" style="position:fixed; bottom:40px; left:50%; transform:translateX(-50%) translateY(80px); background:#1a1a1a; color:#fff; padding:14px 28px; border-radius:50px; font-size:0.9rem; z-index:99999; transition:all 0.4s ease; opacity:0; pointer-events:none; white-space:nowrap; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+  <i class="fas fa-check-circle" style="color:#ddb86e; margin-right:8px;"></i>
+  <span id="login-toast-msg"></span>
+</div>
 
 </body>
 </html>

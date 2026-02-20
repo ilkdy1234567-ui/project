@@ -25,8 +25,78 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<%--상단 네비게이션바--%>
-<jsp:include page="/common/header.jsp"></jsp:include>
+
+<!-- 상단 네비게이션 -->
+<nav id="navbar">
+  <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="/brand.html">여운 스토리</a></div></li>
+    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="/menu.html">커피 (Coffee)</a><a href="/beverage.html">음료 (Beverage)</a><a href="./dessert.html">디저트 (Dessert)</a></div></li>
+    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="/shop.html">원두/드립백</a><a href="/goods.html">홈카페 굿즈</a></div></li>
+    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="/store.html">매장 찾기</a></div></li>
+    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="/notice.html">공지사항</a><a href="/contact.html">1:1 문의</a></div></li>
+  </ul>
+
+  <a href="#" class="logo">YEOWUN<span>餘韻</span></a>
+
+  <div class="nav-sns">
+    <div class="sns-box" id="user-icon-btn" onclick="handleUserIcon()" style="cursor:pointer;">
+      <i class="fas fa-user" id="user-icon"></i>
+      <span class="sns-tooltip" id="user-tooltip">로그인</span>
+    </div>
+    <div class="sns-box"><i class="fab fa-instagram"></i><span class="sns-tooltip">Instagram</span></div>
+    <div class="sns-box"><i class="fas fa-comment"></i><span class="sns-tooltip">KakaoTalk</span></div>
+    <div class="sns-box"><i class="fab fa-facebook-f"></i><span class="sns-tooltip">Facebook</span></div>
+  </div>
+</nav>
+
+<!-- 모바일 사이드바 -->
+<div class="mobile-sidebar" id="mobileSidebar">
+  <div class="mobile-sidebar-close" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
+  <ul>
+    <li>
+      <a href="#" style="cursor: default;">브랜드</a>
+      <div class="mobile-submenu">
+        <a href="/brand.html">여운 스토리</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" style="cursor: default;">메뉴</a>
+      <div class="mobile-submenu">
+        <a href="/menu.html">커피 (Coffee)</a>
+        <a href="/beverage.html">음료 (Beverage)</a>
+        <a href="/dessert.html">디저트 (Dessert)</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" style="cursor: default;">온라인 숍</a>
+      <div class="mobile-submenu">
+        <a href="/shop.html">원두/드립백</a>
+        <a href="/goods.html">홈카페 굿즈</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" style="cursor: default;">매장안내</a>
+      <div class="mobile-submenu">
+        <a href="/store.html">매장 찾기</a>
+      </div>
+    </li>
+    <li>
+      <a href="#" style="cursor: default;">고객지원</a>
+      <div class="mobile-submenu">
+        <a href="/notice.html">공지사항</a>
+        <a href="/contact.html">1:1 문의</a>
+      </div>
+    </li>
+  </ul>
+  <div class="footer-sns-icons" style="margin-top: 40px; justify-content: flex-start;">
+    <a href="#" class="f-icon"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="f-icon"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="f-icon"><i class="fas fa-comment"></i></a>
+  </div>
+</div>
+
 <!-- 메인 히어로 슬라이더 -->
 <header class="hero">
   <div class="swiper mainSwiper main-slider">
@@ -49,27 +119,117 @@
     </div>
 
     <div class="menu-grid">
-      <c:forEach var="item" items="${mainMenus}">
-        <div class="card" data-aos="fade-up">
-          <div class="thumb-box">
-            <div class="thumb-img"
-                 style="background-image: url('${item.imgUrl}')"></div>
-            <div class="overlay">
-              <button class="btn-add-cart"
-                      onclick="addToCart('${item.pname}', ${item.price})">
-                담기
-              </button>
-            </div>
+      <!-- 커피 1 -->
+      <div class="card" data-aos="fade-up">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('/img/커피01.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('콜드브루 라떼', 3500)">담기</button>
           </div>
-
-          <h4>${item.pname}</h4>
-          <p class="subtitle">${item.subtitle}</p>
-          <p class="description">${item.description}</p>
-          <p class="price">
-            <fmt:formatNumber value="${item.price}" pattern="#,###"/>원
-          </p>
         </div>
-      </c:forEach>
+        <h4>콜드브루 라떼</h4>
+        <p class="subtitle">Cold Brew Latte</p>
+        <p class="description">폼 밀크속에 진한 콜드브루 조합<br>달콤한 깊함에 부드럽게 즐기는커피</p>
+        <p class="price">3,500원</p>
+      </div>
+
+      <!-- 커피 2 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('./img/커피02.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('시그니처 바닐라라떼', 4800)">담기</button>
+          </div>
+        </div>
+        <h4>시그니처 바닐라라떼</h4>
+        <p class="subtitle">Signature Vanilla Latte</p>
+        <p class="description">바닐라의 깊은 향과 여운(餘韻)의<br>시그니처 원두의 조화를 즐기는 커피</p>
+        <p class="price">4,800원</p>
+      </div>
+
+      <!-- 커피 3 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('./img/커피03.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('아이스 아메리카노', 3200)">담기</button>
+          </div>
+        </div>
+        <h4>아이스 아메리카노</h4>
+        <p class="subtitle">Iced Americano</p>
+        <p class="description">여운(餘韻) 시그니처 원두의 깊은<br>풍미와 고급짐을 느낄수있는 커피</p>
+        <p class="price">3,200원</p>
+      </div>
+
+      <!-- 커피 4 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('./img/커피05.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('여운 더블코코베리', 6000)">담기</button>
+          </div>
+        </div>
+        <h4>여운 더블코코베리</h4>
+        <p class="subtitle">Yeowoon Double Cocoberry</p>
+        <p class="description">진한 초콜릿 베이스 라떼 속에 설향<br>스트로베리 청을 더한 시즌 음료</p>
+        <p class="price">6,000원</p>
+      </div>
+
+      <!-- 커피 5 -->
+      <div class="card" data-aos="fade-up">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('카페라떼', 4000)">담기</button>
+          </div>
+        </div>
+        <h4>카페라떼</h4>
+        <p class="subtitle">Cafe Latte</p>
+        <p class="description">부드러운 우유와<br>에스프레소의 완벽한 밸런스</p>
+        <p class="price">4,000원</p>
+      </div>
+
+      <!-- 커피 6 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?w=600')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('카푸치노', 4200)">담기</button>
+          </div>
+        </div>
+        <h4>카푸치노</h4>
+        <p class="subtitle">Cappuccino</p>
+        <p class="description">풍부한 우유 거품과<br>진한 에스프레소</p>
+        <p class="price">4,200원</p>
+      </div>
+
+      <!-- 커피 7 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('바닐라라떼', 4500)">담기</button>
+          </div>
+        </div>
+        <h4>바닐라라떼</h4>
+        <p class="subtitle">Vanilla Latte</p>
+        <p class="description">달콤한 바닐라 향의<br>부드러운 라떼</p>
+        <p class="price">4,500원</p>
+      </div>
+
+      <!-- 커피 8 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="thumb-box">
+          <div class="thumb-img" style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('아메리카노', 3500)">담기</button>
+          </div>
+        </div>
+        <h4>아메리카노</h4>
+        <p class="subtitle">Americano</p>
+        <p class="description">깊고 진한<br>에스프레소의 풍미</p>
+        <p class="price">3,500원</p>
+      </div>
     </div>
   </div>
 </section>
@@ -99,52 +259,75 @@
     </div>
   </div>
 </section>
+
 <!-- 굿즈 섹션 (5개 배치 - 슬라이드 제거) -->
 <section class="section" style="background: var(--bg-cream);">
   <div class="container">
-    <h2 style="color:#ddb86e; text-align:center; font-family:'Playfair Display'; font-size:2.5rem; margin-bottom:50px;">
-      YEOWUN Goods
-    </h2>
+    <h2 style="color: #ddb86e; text-align: center; font-family: 'Playfair Display'; font-size: 2.5rem; margin-bottom: 50px;">YEOWUN Goods</h2>
+
     <div class="goods-grid">
-      <c:forEach var="item" items="${mainGoods}">
-        <div class="card" data-aos="fade-up">
-          <div class="thumb-box" style="height:220px;">
-            <div class="thumb-img" style="background-image:url('${item.imgUrl}')"></div>
-
-            <!-- overlay는 thumb-box 안에 있어야 덮임 -->
-            <div class="overlay">
-              <button class="btn-add-cart"
-                      type="button"
-                      onclick="addToCart('${item.pname}', ${item.price})">
-                담기
-              </button>
-            </div>
+      <!-- 굿즈 1 -->
+      <div class="card" data-aos="fade-up">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_01.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 1', 25000)">담기</button>
           </div>
-
-          <h4>${item.pname}</h4>
-          <p class="price">
-            <fmt:formatNumber value="${item.price}" pattern="#,###" />원
-          </p>
-
         </div>
-      </c:forEach>
+        <h4>굿즈 1</h4>
+        <p class="price">25,000원</p>
+      </div>
+
+      <!-- 굿즈 2 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_02.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 2', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>굿즈 2</h4>
+        <p class="price">25,000원</p>
+      </div>
+
+      <!-- 굿즈 3 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_03.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 3', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>굿즈 3</h4>
+        <p class="price">25,000원</p>
+      </div>
+
+      <!-- 굿즈 4 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_04.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 4', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>굿즈 4</h4>
+        <p class="price">25,000원</p>
+      </div>
+
+      <!-- 굿즈 5 -->
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <div class="thumb-box" style="height: 220px;">
+          <div class="thumb-img" style="background-image: url('../img/goods_06w.png')"></div>
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('굿즈 5', 25000)">담기</button>
+          </div>
+        </div>
+        <h4>굿즈 5</h4>
+        <p class="price">25,000원</p>
+      </div>
     </div>
   </div>
 </section>
-
-<div class="order-modal" id="entranceModal" style="display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;">
-  <div class="order-paper" style="width: 400px; text-align: center;">
-    <h3 style="letter-spacing: 5px;">GUEST CHECK-IN</h3>
-    <p style="margin: 20px 0; color: #666;">원활한 서비스 이용을 위해<br>연락처를 입력해 주세요.</p>
-
-    <form action="/customer/login" method="post">
-      <div class="order-form-group">
-        <input type="text" name="cuNumber" class="order-input" placeholder="010-0000-0000" required style="text-align: center; font-size: 1.2rem;">
-      </div>
-      <button type="submit" class="btn-final-order">여운 커피 입장하기</button>
-    </form>
-  </div>
-</div>
 
 <!-- 푸터 -->
 <footer class="main-footer">
@@ -180,7 +363,7 @@
     <div class="footer-info-col">
       <h5>CONTACT US</h5>
       <p style="font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;">02-123-4567</p>
-      <p style="font-size: 0.85rem; color: #888;">평일 09:00 - 18:00 (주말/공휴일 휴무)<br>yeowun_coffee@brand.com</p>
+      <p style="font-size: 0.85rem; color: #888;">평일 09:00 - 18:00 (주말/공휴일 휴무)<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5029353f27253e0f333f36363535103222313e347e333f3d">[email&#160;protected]</a></p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -199,12 +382,18 @@
     <div style="background:var(--text-dark); color:#fff; padding:15px; text-align:center; font-weight:700;">SHOPPING BAG</div>
     <div id="cart-items-list"></div>
     <div style="padding:20px; border-top:1px solid #eee;">
+      <div style="margin-bottom:15px;">
+        <label style="display:block; margin-bottom:8px; font-size:0.9rem; color:#666;">
+          <i class="fas fa-phone"></i> 연락처
+        </label>
+        <input type="tel" id="cart-phone" placeholder="010-0000-0000" oninput="formatPhoneInput(this)" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:0.95rem;">
+      </div>
       <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700;"><span>최종 합계</span><span id="total-price-display" style="color:var(--accent-gold);">0원</span></div>
       <button class="btn-order-now" onclick="processOrder()">주문하기</button>
     </div>
   </div>
   <div class="float-item cart-btn" onclick="toggleDashboard()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count">0</span></div>
-  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTo(0,0)"><i class="fas fa-arrow-up"></i></div>
+  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
 </div>
 
 <!-- 주문서 모달 -->
@@ -220,7 +409,7 @@
 
     <div class="order-form-group">
       <label><i class="fas fa-phone"></i> 연락처</label>
-      <input type="text" class="order-input" id="order-phone" placeholder="010-0000-0000 (숫자만 입력)">
+      <input type="text" class="order-input" id="order-phone" placeholder="010-0000-0000 (숫자만 입력)" oninput="formatPhoneInput(this)">
     </div>
     <div class="order-form-group">
       <label><i class="fas fa-clock"></i> 픽업 예정 시간</label>
@@ -245,10 +434,35 @@
   </div>
 </div>
 
+<!-- 로그인 모달 -->
+<div class="order-modal" id="loginModal">
+  <div class="order-paper" style="max-width:400px; margin:auto;">
+    <div style="text-align:center; margin-bottom:25px;">
+      <div style="width:60px; height:60px; background:var(--accent-gold); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+        <i class="fas fa-user" style="color:#fff; font-size:1.4rem;"></i>
+      </div>
+      <h3 style="margin:0; font-size:1.3rem; letter-spacing:3px;">LOGIN</h3>
+      <p style="color:#999; font-size:0.85rem; margin-top:8px;">전화번호로 간편하게 로그인하세요</p>
+    </div>
+    <div class="order-form-group">
+      <label><i class="fas fa-phone"></i> 전화번호</label>
+      <input type="tel" class="order-input" id="login-phone" placeholder="010-0000-0000 (숫자만 입력)" maxlength="13" oninput="formatPhoneInput(this)">
+    </div>
+    <button class="btn-final-order" onclick="loginWithPhone()">로그인</button>
+    <p onclick="closeLoginModal()" style="text-align:center; margin-top:15px; font-size:0.8rem; color:#aaa; cursor:pointer; text-decoration:underline;">닫기</p>
+  </div>
+</div>
+
+<!-- 토스트 알림 -->
+<div id="login-toast" style="position:fixed; bottom:40px; left:50%; transform:translateX(-50%) translateY(80px); background:#1a1a1a; color:#fff; padding:14px 28px; border-radius:50px; font-size:0.9rem; z-index:99999; transition:all 0.4s ease; opacity:0; pointer-events:none; white-space:nowrap; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+  <i class="fas fa-check-circle" style="color:#ddb86e; margin-right:8px;"></i>
+  <span id="login-toast-msg"></span>
+</div>
+
 <!-- 외부 스크립트 -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-detection.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script src="../js/script.js"></script>
-
+<script src="/js/script.js"></script>
 </body>
 </html>
