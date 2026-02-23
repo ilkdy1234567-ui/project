@@ -21,6 +21,7 @@
     <!-- 커스텀 CSS -->
     <link rel="stylesheet" href="/css/style.css">
 </head>
+<iframe name="cartHiddenFrame" id="cartHiddenFrame" style="display:none;"></iframe>
 <body>
 
 <!-- 상단 네비게이션 -->
@@ -33,7 +34,7 @@
         <h1 data-aos="fade-up">CONTACT US</h1>
         <p data-aos="fade-up" data-aos-delay="100">궁금하신 사항을 문의해주세요</p>
         <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-            <a href="/index">HOME</a> <i class="fas fa-chevron-right"></i>
+            <a href="./index.html">HOME</a> <i class="fas fa-chevron-right"></i>
             <a href="#">고객지원</a> <i class="fas fa-chevron-right"></i>
             <span>1:1 문의</span>
         </div>
@@ -249,24 +250,26 @@
 </footer>
 
 <!-- 플로팅 버튼 (장바구니 & TOP) -->
+<form id="addForm" name="addForm" method="post" target="cartHiddenFrame">
 <div id="floating-btns">
     <div class="cart-dashboard" id="cart-dashboard">
         <div style="background:var(--text-dark); color:#fff; padding:15px; text-align:center; font-weight:700;">SHOPPING BAG</div>
         <div id="cart-items-list"></div>
         <div style="padding:20px; border-top:1px solid #eee;">
             <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700;"><span>최종 합계</span><span id="total-price-display" style="color:var(--accent-gold);">0원</span></div>
-            <button class="btn-order-now" onclick="processOrder()">주문하기</button>
+            <button type="button" class="btn-order-now" onclick="processOrder()">주문하기</button>
         </div>
     </div>
     <div class="float-item cart-btn" onclick="toggleDashboard()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count">0</span></div>
     <div class="float-item top-btn" id="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
 </div>
-
+</form>
 <!-- 주문서 모달 -->
 <div class="order-modal" id="orderModal">
     <div class="order-paper">
         <h3>ORDER SHEET</h3>
 
+        <!-- 주문 메뉴 리스트 추가 -->
         <div class="order-form-group">
             <label><i class="fas fa-shopping-cart"></i> 주문 메뉴</label>
             <div id="order-menu-list" style="background: #f8f5f0; padding: 15px; border-radius: 10px; max-height: 150px; overflow-y: auto; font-size: 0.9rem;"></div>
@@ -299,6 +302,7 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- 문의 완료 모달 -->
 <div class="order-modal" id="contactModal">
     <div class="order-paper" style="text-align: center;">
@@ -331,27 +335,3 @@
             content.style.display = 'block';
         }
     }
-    // 문의 폼 제출 처리
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // 기본 제출 동작 막기
-
-        // 간단한 유효성 검사
-        const type = document.getElementById('contact-type').value;
-        const content = document.getElementById('contact-content').value;
-
-        if(!type || !content) {
-            alert('문의 유형과 내용을 모두 입력해주세요.');
-            return;
-        }
-
-        // 작성 로직 (컨트롤러의 /inquiry/write로 보냄)
-        this.action = "/inquiry/write";
-        this.method = "POST";
-        this.submit();
-    });
-
-    function closeContactModal() {
-        document.getElementById('contactModal').style.display = 'none';
-        location.href = "/inquiry"; // 확인 후 목록으로 이동
-    }
-    <script/>

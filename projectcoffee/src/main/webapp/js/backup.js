@@ -120,117 +120,118 @@ function closeOrderModal() {
 }
 
 // ==================== 최종 주문 확정 ====================
-function confirmFinalOrder() {
+    function confirmFinalOrder() {
+        // 1) 주문서 입력값 가져오기
+        const phone = document.getElementById('order-phone').value.trim();
+        const time = document.getElementById('order-time').value;
+        const memo = document.getElementById('order-memo').value.trim();
 
-    // 1) 주문서 입력값 가져오기
-    const phone = document.getElementById('order-phone').value.trim();
-    const time = document.getElementById('order-time').value;
-    const memo = document.getElementById('order-memo').value.trim();
-
-    // 2) 유효성 검사
-    if (!phone) {
-        alert('연락처를 입력해주세요.');
-        return;
-    }
-
-    const onlyDigits = phone.replace(/[^0-9]/g, "");
-    if (onlyDigits.length !== 11) {
-        alert("연락처를 정확히 입력해주세요. (예: 01012345678)");
-        document.getElementById('order-phone').focus();
-        return;
-    }
-
-    // 3) 장바구니 비었으면 막기
-    if (!cart || cart.length === 0) {
-        alert("장바구니가 비어있습니다.");
-        return;
-    }
-
-    // 4) form 가져오기
-    const $form = $("#addForm");
-
-    // 5) submit을 iframe으로 보냄 (페이지 유지)
-    $form.attr("target", "cartHiddenFrame");
-
-    // 6) insert URL 설정 (확정에서만 실행)
-    $form.attr("action", window.CTX + "/cart/insert");
-    $form.attr("method", "post");
-
-    // 7) 기존 hidden 제거
-    $form.find(".cart-hidden").remove();
-
-    // 8) cart 배열을 hidden input으로 변환
-    $.each(cart, function(index, item) {
-
-        if (!item.pUuid) {
-            alert("상품 식별자(pUuid)가 없습니다.");
-            return false;
+        // 2) 유효성 검사
+        if (!phone) {
+            alert('연락처를 입력해주세요.');
+            return;
         }
 
+        // (선택) 숫자만 남기기
+        const onlyDigits = phone.replace(/[^0-9]/g, "");
+        if (onlyDigits.length < 10 || onlyDigits.length > 11) {
+            alert("연락처를 정확히 입력해주세요. (예: 01012345678)");
+            document.getElementById('order-phone').focus();
+            return;
+        }
+
+        // 3) 장바구니 비었으면 막기
+        if (!cart || cart.length === 0) {
+            alert("장바구니가 비어있습니다.");
+            return;
+        }
+
+        // 4) form 가져오기 (jQuery 사용)
+        const $form = $("#addForm");
+
+        // 5) submit 결과를 현재 화면이 아니라 iframe이 받도록 target 설정
+        $form.attr("target", "cartHiddenFrame");
+
+        // 6) action/method 설정 (컨트롤러 URL)
+        $form.attr("action", window.CTX + "/cart/insert");
+        $form.attr("method", "post");
+
+        // 7) 기존 hidden input 제거 (중복 방지)
+        $form.find(".cart-hidden").remove();
+
+        // 8) cart 배열 -> hidden input으로 삽입 (pUuid[], quantity[])
+        $.each(cart, function(index, item) {
+
+            // pUuid가 없으면 서버 insert가 어려움 (FK 에러 가능)
+            if (!item.pUuid) {
+                console.error("cart item에 pUuid가 없습니다:", item);
+                alert("상품 식별자(pUuid)가 없어 주문할 수 없습니다. addToCart에 pUuid를 저장하도록 수정해주세요.");
+                return false; // each 중단
+            }
+
+            // pUuid
+            $("<input>")
+                .attr({ type: "hidden", name: "pUuid", value: item.pUuid })
+                .addClass("cart-hidden")
+                .appendTo($form);
+
+            // quantity
+            $("<input>")
+                .attr({ type: "hidden", name: "quantity", value: item.qty })
+                .addClass("cart-hidden")
+                .appendTo($form);
+        });
+
+        // 9) (선택) 연락처/시간/메모도 같이 전송 (서버에서 받을 준비가 되어있어야 의미 있음)
         $("<input>")
-            .attr({ type: "hidden", name: "pUuid", value: item.pUuid })
+            .attr({ type: "hidden", name: "phone", value: onlyDigits })
             .addClass("cart-hidden")
             .appendTo($form);
 
         $("<input>")
-            .attr({ type: "hidden", name: "quantity", value: item.qty })
+            .attr({ type: "hidden", name: "pickupTime", value: time })
             .addClass("cart-hidden")
             .appendTo($form);
-    });
 
-    // 9) 추가 정보도 전송
-    $("<input>")
-        .attr({ type: "hidden", name: "cuNumber", value: onlyDigits })
-        .addClass("cart-hidden")
-        .appendTo($form);
+        $("<input>")
+            .attr({ type: "hidden", name: "memo", value: memo })
+            .addClass("cart-hidden")
+            .appendTo($form);
 
-    $("<input>")
-        .attr({ type: "hidden", name: "pickupTime", value: time })
-        .addClass("cart-hidden")
-        .appendTo($form);
+        // 10) iframe 로드 이벤트에서 성공처리할 수 있게, 한 번만 이벤트 바인딩
+        $("#cartHiddenFrame").off("load").on("load", function () {
+            // 서버 응답 텍스트 읽기 (컨트롤러가 "ok"를 반환하니까)
+            let txt = "";
+            try {
+                txt = $(this).contents().text().trim();
+            } catch (e) {
+                // 보통 같은 도메인이면 문제 없음
+            }
 
-    $("<input>")
-        .attr({ type: "hidden", name: "memo", value: memo })
-        .addClass("cart-hidden")
-        .appendTo($form);
+            // 성공 판단 (응답이 ok 포함이면 성공 처리)
+            if (txt.toLowerCase().includes("ok")) {
 
-    $("#cartHiddenFrame").off("load").on("load", function () {
+                alert(`주문이 정상적으로 접수되었습니다!\n\n연락처: ${phone}\n픽업 시간: ${time}\n\n여운 커피를 이용해주셔서 감사합니다.`);
 
-        let txt = "";
-        try {
-            txt = this.contentWindow.document.body
-                ? this.contentWindow.document.body.innerText.trim()
-                : "";
-        } catch (e) {
-            console.error("iframe 응답 읽기 실패:", e);
-        }
+                // 장바구니 비우기
+                cart = [];
+                localStorage.setItem('yeowun_cart', JSON.stringify(cart));
+                updateCartUI();
 
-        console.log("iframe response:", txt);
+                // 모달 닫기 + 입력 초기화
+                closeOrderModal();
+                document.getElementById('order-phone').value = '';
+                document.getElementById('order-memo').value = '';
 
-        if (txt.toLowerCase().includes("ok")) {
+            } else {
+                // 실패/예외 응답이 있을 때
+                alert("주문 저장에 실패했습니다. 서버 응답: " + (txt || "응답 없음"));
+            }
+        });
 
-            alert(`주문이 정상적으로 접수되었습니다!\n\n연락처: ${phone}\n픽업 시간: ${time}\n\n여운 커피를 이용해주셔서 감사합니다.`);
-
-            cart = [];
-            localStorage.setItem('yeowun_cart', JSON.stringify(cart));
-            updateCartUI();
-
-            closeOrderModal();
-
-            document.getElementById('order-phone').value = '';
-            document.getElementById('order-memo').value = '';
-
-            $("#cartHiddenFrame").attr("src", "about:blank");
-        }
-    });
-
-// submit은 안전하게 0ms 뒤에
-    setTimeout(function () {
+        // 11) 제출 (페이지 이동 없음 — iframe이 대신 받음)
         $form.submit();
-    }, 0);
-    // 11) insert 실행
-    $form.submit();
-}
+    }
 
 // ==================== 장바구니 대시보드 토글 ====================
 function toggleDashboard() {

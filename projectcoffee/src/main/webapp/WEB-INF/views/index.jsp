@@ -24,6 +24,7 @@
   <!-- 커스텀 CSS -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
+<iframe name="cartHiddenFrame" id="cartHiddenFrame" style="display:none;"></iframe>
 <body>
 <%--상단 네비게이션바--%>
 <jsp:include page="/common/header.jsp"></jsp:include>
@@ -56,7 +57,7 @@
                  style="background-image: url('${item.imgUrl}')"></div>
             <div class="overlay">
               <button class="btn-add-cart"
-                      onclick="addToCart('${item.pname}', ${item.price})">
+                      onclick="addToCart('${item.puuid}','${item.pname}', ${item.price})">
                 담기
               </button>
             </div>
@@ -105,6 +106,7 @@
     <h2 style="color:#ddb86e; text-align:center; font-family:'Playfair Display'; font-size:2.5rem; margin-bottom:50px;">
       YEOWUN Goods
     </h2>
+
     <div class="goods-grid">
       <c:forEach var="item" items="${mainGoods}">
         <div class="card" data-aos="fade-up">
@@ -115,7 +117,7 @@
             <div class="overlay">
               <button class="btn-add-cart"
                       type="button"
-                      onclick="addToCart('${item.pname}', ${item.price})">
+                      onclick="addToCart('${item.puuid}','${item.pname}', ${item.price})">
                 담기
               </button>
             </div>
@@ -132,6 +134,19 @@
   </div>
 </section>
 
+<div class="order-modal" id="entranceModal" style="display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;">
+  <div class="order-paper" style="width: 400px; text-align: center;">
+    <h3 style="letter-spacing: 5px;">GUEST CHECK-IN</h3>
+    <p style="margin: 20px 0; color: #666;">원활한 서비스 이용을 위해<br>연락처를 입력해 주세요.</p>
+
+    <form action="/customer/login" method="post">
+      <div class="order-form-group">
+        <input type="text" name="cuNumber" class="order-input" placeholder="010-0000-0000" required style="text-align: center; font-size: 1.2rem;">
+      </div>
+      <button type="submit" class="btn-final-order">여운 커피 입장하기</button>
+    </form>
+  </div>
+</div>
 
 <!-- 푸터 -->
 <footer class="main-footer">
@@ -181,18 +196,20 @@
 </footer>
 
 <!-- 플로팅 버튼 (장바구니 & TOP) -->
+<form id="addForm" name="addForm" method="post" target="cartHiddenFrame">
 <div id="floating-btns">
   <div class="cart-dashboard" id="cart-dashboard">
     <div style="background:var(--text-dark); color:#fff; padding:15px; text-align:center; font-weight:700;">SHOPPING BAG</div>
     <div id="cart-items-list"></div>
     <div style="padding:20px; border-top:1px solid #eee;">
       <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700;"><span>최종 합계</span><span id="total-price-display" style="color:var(--accent-gold);">0원</span></div>
-      <button class="btn-order-now" onclick="processOrder()">주문하기</button>
+      <button type="button" class="btn-order-now" onclick="processOrder()">주문하기</button>
     </div>
   </div>
   <div class="float-item cart-btn" onclick="toggleDashboard()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count">0</span></div>
-  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTo(0,0)"><i class="fas fa-arrow-up"></i></div>
+  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTop(0,0)"><i class="fas fa-arrow-up"></i></div>
 </div>
+</form>
 
 <!-- 주문서 모달 -->
 <div class="order-modal" id="orderModal">
@@ -232,6 +249,7 @@
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- 외부 스크립트 -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

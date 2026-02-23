@@ -25,6 +25,8 @@
   <!-- 커스텀 CSS -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
+<!-- ✅ submit 결과를 화면이 아니라 iframe이 받게 함 (페이지 유지용) -->
+<iframe name="cartHiddenFrame" id="cartHiddenFrame" style="display:none;"></iframe>
 <body>
 <!-- 상단 네비게이션 -->
 <%--모바일 사이드바--%>
@@ -56,7 +58,6 @@
 
     <!-- 커피 메뉴 그리드 (4x4 = 16개) -->
       <div class="menu-grid">
-
         <c:forEach var="item" items="${list}">
           <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
 
@@ -66,7 +67,7 @@
               </div>
               <div class="overlay">
                 <button class="btn-add-cart"
-                        onclick="addToCart('${item.pname}', ${item.price})">
+                        onclick="addToCart('${item.puuid}','${item.pname}', ${item.price})">
                   담기
                 </button>
               </div>
@@ -132,19 +133,20 @@
 </footer>
 
 <!-- 플로팅 버튼 (장바구니 & TOP) -->
+<form id="addForm" name="addForm" method="post" target="cartHiddenFrame">
 <div id="floating-btns">
   <div class="cart-dashboard" id="cart-dashboard">
     <div style="background:var(--text-dark); color:#fff; padding:15px; text-align:center; font-weight:700;">SHOPPING BAG</div>
     <div id="cart-items-list"></div>
     <div style="padding:20px; border-top:1px solid #eee;">
       <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700;"><span>최종 합계</span><span id="total-price-display" style="color:var(--accent-gold);">0원</span></div>
-      <button class="btn-order-now" onclick="processOrder()">주문하기</button>
+      <button type="button" class="btn-order-now" onclick="processOrder()">주문하기</button>
     </div>
   </div>
   <div class="float-item cart-btn" onclick="toggleDashboard()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count">0</span></div>
-  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTop({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
 </div>
-
+</form>
 <!-- 주문서 모달 -->
 <div class="order-modal" id="orderModal">
   <div class="order-paper">
@@ -178,13 +180,17 @@
         <span>최종 결제 금액</span><span id="final-order-price">0원</span>
       </div>
     </div>
-    <button class="btn-final-order" onclick="confirmFinalOrder()">주문 확정하기</button>
+    <button  type="button" class="btn-final-order" onclick="confirmFinalOrder()">주문 확정하기</button>
     <p onclick="closeOrderModal()" style="text-align:center; margin-top:15px; font-size:0.8rem; color:#aaa; cursor:pointer; text-decoration:underline;">취소하고 돌아가기</p>
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- 외부 스크립트 -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  window.CTX = "${pageContext.request.contextPath}";
+</script>
 <script src="/js/script.js"></script>
 
 <!-- 메뉴 필터링 스크립트 -->

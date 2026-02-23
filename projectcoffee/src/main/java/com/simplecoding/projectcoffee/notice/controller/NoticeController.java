@@ -22,13 +22,4 @@ public class NoticeController {
 
         return "notice";
     }
-    // NoticeController.java에 추가
-    @GetMapping("/notice/detail")
-    public String detail(int noticeId, Model model) {
-        // Service에서 조회수 증가 + 상세 조회를 한 번에 처리
-        Notice notice = noticeService.getNoticeDetail(noticeId);
-        model.addAttribute("notice", notice);
-
-        return "notice_detail"; // notice_detail.jsp 파일을 새로 만들어야 합니다.
-    }
 }
