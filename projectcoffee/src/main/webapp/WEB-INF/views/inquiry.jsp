@@ -34,7 +34,7 @@
         <h1 data-aos="fade-up">CONTACT US</h1>
         <p data-aos="fade-up" data-aos-delay="100">궁금하신 사항을 문의해주세요</p>
         <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-            <a href="./index.html">HOME</a> <i class="fas fa-chevron-right"></i>
+            <a href="/index">HOME</a> <i class="fas fa-chevron-right"></i>
             <a href="#">고객지원</a> <i class="fas fa-chevron-right"></i>
             <span>1:1 문의</span>
         </div>
