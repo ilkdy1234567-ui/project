@@ -31,11 +31,11 @@
   <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
 
   <ul class="nav-menu">
-    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="/brand.html">여운 스토리</a></div></li>
-    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="/menu.html">커피 (Coffee)</a><a href="/beverage.html">음료 (Beverage)</a><a href="./dessert.html">디저트 (Dessert)</a></div></li>
-    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="/shop.html">원두/드립백</a><a href="/goods.html">홈카페 굿즈</a></div></li>
-    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="/store.html">매장 찾기</a></div></li>
-    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="/notice.html">공지사항</a><a href="/contact.html">1:1 문의</a></div></li>
+    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="/brand">여운 스토리</a></div></li>
+    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="/menu">커피 (Coffee)</a><a href="/beverage">음료 (Beverage)</a><a href="./dessert">디저트 (Dessert)</a></div></li>
+    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="/shop">원두/드립백</a><a href="/goods">홈카페 굿즈</a></div></li>
+    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="/store">매장 찾기</a></div></li>
+    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="/notice">공지사항</a><a href="/inquiry">1:1 문의</a></div></li>
   </ul>
 
   <a href="#" class="logo">YEOWUN<span>餘韻</span></a>
@@ -58,35 +58,35 @@
     <li>
       <a href="#" style="cursor: default;">브랜드</a>
       <div class="mobile-submenu">
-        <a href="/brand.html">여운 스토리</a>
+        <a href="/brand">여운 스토리</a>
       </div>
     </li>
     <li>
       <a href="#" style="cursor: default;">메뉴</a>
       <div class="mobile-submenu">
-        <a href="/menu.html">커피 (Coffee)</a>
-        <a href="/beverage.html">음료 (Beverage)</a>
-        <a href="/dessert.html">디저트 (Dessert)</a>
+        <a href="/menu">커피 (Coffee)</a>
+        <a href="/beverage">음료 (Beverage)</a>
+        <a href="/dessert">디저트 (Dessert)</a>
       </div>
     </li>
     <li>
       <a href="#" style="cursor: default;">온라인 숍</a>
       <div class="mobile-submenu">
-        <a href="/shop.html">원두/드립백</a>
-        <a href="/goods.html">홈카페 굿즈</a>
+        <a href="/shop">원두/드립백</a>
+        <a href="/goods">홈카페 굿즈</a>
       </div>
     </li>
     <li>
       <a href="#" style="cursor: default;">매장안내</a>
       <div class="mobile-submenu">
-        <a href="/store.html">매장 찾기</a>
+        <a href="/store">매장 찾기</a>
       </div>
     </li>
     <li>
       <a href="#" style="cursor: default;">고객지원</a>
       <div class="mobile-submenu">
-        <a href="/notice.html">공지사항</a>
-        <a href="/contact.html">1:1 문의</a>
+        <a href="/notice">공지사항</a>
+        <a href="/contact">1:1 문의</a>
       </div>
     </li>
   </ul>

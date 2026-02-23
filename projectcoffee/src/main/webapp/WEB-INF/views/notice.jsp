@@ -28,14 +28,14 @@
   <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
 
   <ul class="nav-menu">
-    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="/brand.html">여운 스토리</a></div></li>
-    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="/menu.html">커피 (Coffee)</a><a href="/beverage.html">음료 (Beverage)</a><a href="./dessert.html">디저트 (Dessert)</a></div></li>
-    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="/shop.html">원두/드립백</a><a href="/goods.html">홈카페 굿즈</a></div></li>
-    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="/store.html">매장 찾기</a></div></li>
-    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="/notice.html">공지사항</a><a href="/contact.html">1:1 문의</a></div></li>
+    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="/brand">여운 스토리</a></div></li>
+    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="/menu">커피 (Coffee)</a><a href="/beverage">음료 (Beverage)</a><a href="./dessert">디저트 (Dessert)</a></div></li>
+    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="/shop">원두/드립백</a><a href="/goods">홈카페 굿즈</a></div></li>
+    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="/store">매장 찾기</a></div></li>
+    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="/notice">공지사항</a><a href="/inquiry">1:1 문의</a></div></li>
   </ul>
 
-  <a href="./index.html" class="logo">YEOWUN<span>餘韻</span></a>
+  <a href="./index" class="logo">YEOWUN<span>餘韻</span></a>
 
   <div class="nav-sns">
     <div class="sns-box" id="user-icon-btn" onclick="handleUserIcon()" style="cursor:pointer;">
@@ -55,35 +55,35 @@
     <li>
       <a href="#" style="cursor: default;">브랜드</a>
       <div class="mobile-submenu">
-        <a href="/brand.html">여운 스토리</a>
+        <a href="/brand">여운 스토리</a>
       </div>
     </li>
     <li>
       <a href="#" style="cursor: default;">메뉴</a>
       <div class="mobile-submenu">
-        <a href="/menu.html">커피 (Coffee)</a>
-        <a href="/beverage.html">음료 (Beverage)</a>
-        <a href="/dessert.html">디저트 (Dessert)</a>
+        <a href="/menu">커피 (Coffee)</a>
+        <a href="/beverage">음료 (Beverage)</a>
+        <a href="/dessert">디저트 (Dessert)</a>
       </div>
     </li>
     <li>
       <a href="#" style="cursor: default;">온라인 숍</a>
       <div class="mobile-submenu">
-        <a href="/shop.html">원두/드립백</a>
-        <a href="/goods.html">홈카페 굿즈</a>
+        <a href="/shop">원두/드립백</a>
+        <a href="/goods">홈카페 굿즈</a>
       </div>
     </li>
     <li>
       <a href="#" style="cursor: default;">매장안내</a>
       <div class="mobile-submenu">
-        <a href="/store.html">매장 찾기</a>
+        <a href="/store">매장 찾기</a>
       </div>
     </li>
     <li>
       <a href="#" style="cursor: default;">고객지원</a>
       <div class="mobile-submenu">
-        <a href="/notice.html">공지사항</a>
-        <a href="/contact.html">1:1 문의</a>
+        <a href="/notice">공지사항</a>
+        <a href="/inquiry">1:1 문의</a>
       </div>
     </li>
   </ul>
@@ -100,7 +100,7 @@
     <h1 data-aos="fade-up">NOTICE</h1>
     <p data-aos="fade-up" data-aos-delay="100">여운의 새로운 소식을 확인하세요</p>
     <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-      <a href="./index.html">HOME</a> <i class="fas fa-chevron-right"></i>
+      <a href="./index">HOME</a> <i class="fas fa-chevron-right"></i>
       <a href="#">고객지원</a> <i class="fas fa-chevron-right"></i>
       <span>공지사항</span>
     </div>
@@ -136,121 +136,121 @@
         </tr>
         </thead>
         <tbody>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: var(--accent-gold); font-weight: 600;"><i class="fas fa-star"></i></td>
           <td style="padding: 18px;"><span style="color: var(--accent-gold); font-weight: 600;">[필독]</span> 2월 정기 점검 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.10</td>
           <td style="padding: 18px; text-align: center; color: #999;">1,234</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">10000</td>
           <td style="padding: 18px;">신규 매장 오픈 안내 (강남 3호점)</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.09</td>
           <td style="padding: 18px; text-align: center; color: #999;">856</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9999</td>
           <td style="padding: 18px;">발렌타인데이 특별 이벤트</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.08</td>
           <td style="padding: 18px; text-align: center; color: #999;">2,341</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9998</td>
           <td style="padding: 18px;">겨울 시즌 한정 메뉴 출시</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.07</td>
           <td style="padding: 18px; text-align: center; color: #999;">1,567</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9997</td>
           <td style="padding: 18px;">멤버십 포인트 적립률 변경 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.06</td>
           <td style="padding: 18px; text-align: center; color: #999;">987</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9996</td>
           <td style="padding: 18px;">드립백 신제품 출시 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.05</td>
           <td style="padding: 18px; text-align: center; color: #999;">1,423</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9995</td>
           <td style="padding: 18px;">설 연휴 매장 운영 시간 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.04</td>
           <td style="padding: 18px; text-align: center; color: #999;">765</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9994</td>
           <td style="padding: 18px;">모바일 앱 업데이트 안내 (v2.1.0)</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.03</td>
           <td style="padding: 18px; text-align: center; color: #999;">654</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9993</td>
           <td style="padding: 18px;">온라인 스토어 배송 정책 변경</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.02</td>
           <td style="padding: 18px; text-align: center; color: #999;">892</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9992</td>
           <td style="padding: 18px;">1월 이달의 원두 소개</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.02.01</td>
           <td style="padding: 18px; text-align: center; color: #999;">1,123</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9991</td>
           <td style="padding: 18px;">신규 멤버십 등급 혜택 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.31</td>
           <td style="padding: 18px; text-align: center; color: #999;">2,015</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9990</td>
           <td style="padding: 18px;">커피 원두 가격 조정 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.30</td>
           <td style="padding: 18px; text-align: center; color: #999;">1,678</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9989</td>
           <td style="padding: 18px;">부산 해운대점 리뉴얼 오픈</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.29</td>
           <td style="padding: 18px; text-align: center; color: #999;">945</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9988</td>
           <td style="padding: 18px;">겨울 시즌 MD 굿즈 출시</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.28</td>
           <td style="padding: 18px; text-align: center; color: #999;">1,234</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9987</td>
           <td style="padding: 18px;">개인정보처리방침 개정 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.27</td>
           <td style="padding: 18px; text-align: center; color: #999;">567</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9986</td>
           <td style="padding: 18px;">고객센터 운영 시간 변경 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.26</td>
           <td style="padding: 18px; text-align: center; color: #999;">423</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9985</td>
           <td style="padding: 18px;">봄 시즌 신메뉴 사전 공개</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.25</td>
           <td style="padding: 18px; text-align: center; color: #999;">3,127</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9984</td>
           <td style="padding: 18px;">로스팅 클래스 2월 일정 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.24</td>
           <td style="padding: 18px; text-align: center; color: #999;">1,892</td>
         </tr>
-        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="border-bottom: 1px solid #f0f0f0; cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9983</td>
           <td style="padding: 18px;">단체 주문 할인 이벤트</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.23</td>
           <td style="padding: 18px; text-align: center; color: #999;">756</td>
         </tr>
-        <tr style="cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail.html';">
+        <tr style="cursor: pointer;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'" onclick="location.href='./notice_detail';">
           <td style="padding: 18px; text-align: center; color: #666;">9982</td>
           <td style="padding: 18px;">결제 시스템 점검 안내</td>
           <td style="padding: 18px; text-align: center; color: #999;">2026.01.22</td>
