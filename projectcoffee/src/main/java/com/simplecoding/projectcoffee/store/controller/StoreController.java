@@ -13,10 +13,10 @@ import java.util.List;
 public class StoreController {
     @Autowired
     private StoreService storeService;
-    @GetMapping("/store/list")
+    @GetMapping("/store")
     public String getStoreList(Model model){
         List<Store> list= storeService.findAll();
         model.addAttribute("stores",list);
-        return "storeList";
+        return "store";
     }
 }

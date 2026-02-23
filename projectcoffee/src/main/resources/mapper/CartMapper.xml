@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.simplecoding.projectcoffee.cart.mapper.CartMapper">
+    <select id="selectCartList"
+            parameterType="int"
+            resultType="Cart"
+    >
+        SELECT CI.*,C_DATE FROM CART C,CART_ITEM CI
+        WHERE C.CART_ID = ci.cart_id AND C.CART_ID=#{cartId}
+    </select>
+
+    <insert id="insertP" parameterType="Cart">
+        INSERT INTO CART (CART_ID, C_DATE,CU_NUMBER)
+        VALUES (#{cartId}, SYSDATE ,#{cuNumber})
+    </insert>
+
+    <insert id="insertC" parameterType="com.simplecoding.projectcoffee.cart.vo.CartItem">
+        INSERT INTO CART_ITEM (CART_ITEM_ID, P_UUID, CART_ID, QUANTITY)
+        VALUES (SEQ_CART_ITEM.NEXTVAL, #{pUuid}, #{cartId}, #{quantity})
+    </insert>
+</mapper>

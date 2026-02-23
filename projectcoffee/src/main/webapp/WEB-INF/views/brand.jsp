@@ -21,6 +21,7 @@
   <!-- 커스텀 CSS -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
+<iframe name="cartHiddenFrame" id="cartHiddenFrame" style="display:none;"></iframe>
 <body>
 
 <!-- 상단 네비게이션 -->
@@ -221,13 +222,14 @@
 </footer>
 
 <!-- 플로팅 버튼 (장바구니 & TOP) -->
+<form id="addForm" name="addForm" method="post" target="cartHiddenFrame">
 <div id="floating-btns">
   <div class="cart-dashboard" id="cart-dashboard">
     <div style="background:var(--text-dark); color:#fff; padding:15px; text-align:center; font-weight:700;">SHOPPING BAG</div>
     <div id="cart-items-list"></div>
     <div style="padding:20px; border-top:1px solid #eee;">
       <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700;"><span>최종 합계</span><span id="total-price-display" style="color:var(--accent-gold);">0원</span></div>
-      <button class="btn-order-now" onclick="processOrder()">주문하기</button>
+      <button type="button" class="btn-order-now" onclick="processOrder()">주문하기</button>
     </div>
   </div>
   <div class="float-item cart-btn" onclick="toggleDashboard()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count">0</span></div>
@@ -235,42 +237,44 @@
 </div>
 
 <!-- 주문서 모달 -->
-<div class="order-modal" id="orderModal">
-  <div class="order-paper">
-    <h3>ORDER SHEET</h3>
+  <div class="order-modal" id="orderModal">
+    <div class="order-paper">
+      <h3>ORDER SHEET</h3>
 
-    <div class="order-form-group">
-      <label><i class="fas fa-shopping-cart"></i> 주문 메뉴</label>
-      <div id="order-menu-list" style="background: #f8f5f0; padding: 15px; border-radius: 10px; max-height: 150px; overflow-y: auto; font-size: 0.9rem;"></div>
-    </div>
-
-    <div class="order-form-group">
-      <label><i class="fas fa-phone"></i> 연락처</label>
-      <input type="text" class="order-input" id="order-phone" placeholder="010-0000-0000 (숫자만 입력)">
-    </div>
-    <div class="order-form-group">
-      <label><i class="fas fa-clock"></i> 픽업 예정 시간</label>
-      <select class="order-select" id="order-time">
-        <option value="10분 후">10분 후</option>
-        <option value="20분 후">20분 후</option>
-        <option value="30분 후">30분 후</option>
-      </select>
-    </div>
-    <div class="order-form-group">
-      <label><i class="fas fa-pen"></i> 추가 요청사항</label>
-      <textarea class="order-textarea" id="order-memo" placeholder="예: 이 번호로 적립해주세요 / 시럽 빼주세요"></textarea>
-    </div>
-    <div class="order-summary">
-      <div class="order-row"><span>주문 내역</span><span id="final-item-count">0건</span></div>
-      <div class="order-row" style="font-weight: 700; color: var(--accent-gold); border-top: 1px solid #ddd; margin-top: 10px; padding-top: 10px;">
-        <span>최종 결제 금액</span><span id="final-order-price">0원</span>
+      <!-- 주문 메뉴 리스트 추가 -->
+      <div class="order-form-group">
+        <label><i class="fas fa-shopping-cart"></i> 주문 메뉴</label>
+        <div id="order-menu-list" style="background: #f8f5f0; padding: 15px; border-radius: 10px; max-height: 150px; overflow-y: auto; font-size: 0.9rem;"></div>
       </div>
-    </div>
-    <button class="btn-final-order" onclick="confirmFinalOrder()">주문 확정하기</button>
-    <p onclick="closeOrderModal()" style="text-align:center; margin-top:15px; font-size:0.8rem; color:#aaa; cursor:pointer; text-decoration:underline;">취소하고 돌아가기</p>
-  </div>
-</div>
 
+      <div class="order-form-group">
+        <label><i class="fas fa-phone"></i> 연락처</label>
+        <input type="text" class="order-input" id="order-phone" placeholder="010-0000-0000 (숫자만 입력)">
+      </div>
+      <div class="order-form-group">
+        <label><i class="fas fa-clock"></i> 픽업 예정 시간</label>
+        <select class="order-select" id="order-time">
+          <option value="10분 후">10분 후</option>
+          <option value="20분 후">20분 후</option>
+          <option value="30분 후">30분 후</option>
+        </select>
+      </div>
+      <div class="order-form-group">
+        <label><i class="fas fa-pen"></i> 추가 요청사항</label>
+        <textarea class="order-textarea" id="order-memo" placeholder="예: 이 번호로 적립해주세요 / 시럽 빼주세요"></textarea>
+      </div>
+      <div class="order-summary">
+        <div class="order-row"><span>주문 내역</span><span id="final-item-count">0건</span></div>
+        <div class="order-row" style="font-weight: 700; color: var(--accent-gold); border-top: 1px solid #ddd; margin-top: 10px; padding-top: 10px;">
+          <span>최종 결제 금액</span><span id="final-order-price">0원</span>
+        </div>
+      </div>
+      <button class="btn-final-order" onclick="confirmFinalOrder()">주문 확정하기</button>
+      <p onclick="closeOrderModal()" style="text-align:center; margin-top:15px; font-size:0.8rem; color:#aaa; cursor:pointer; text-decoration:underline;">취소하고 돌아가기</p>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- 외부 스크립트 -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="../js/script.js"></script>
