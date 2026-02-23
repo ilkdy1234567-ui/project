@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,75 +24,8 @@
 <body>
 
 <!-- 상단 네비게이션 -->
-<nav id="navbar">
-  <div class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
-
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="#">브랜드</a><div class="dropdown"><a href="/brand">여운 스토리</a></div></li>
-    <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="/menu">커피 (Coffee)</a><a href="/beverage">음료 (Beverage)</a><a href="./dessert">디저트 (Dessert)</a></div></li>
-    <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="/shop">원두/드립백</a><a href="/goods">홈카페 굿즈</a></div></li>
-    <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="/store">매장 찾기</a></div></li>
-    <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="/notice">공지사항</a><a href="/inquiry">1:1 문의</a></div></li>
-  </ul>
-
-  <a href="./index" class="logo">YEOWUN<span>餘韻</span></a>
-
-  <div class="nav-sns">
-    <div class="sns-box" id="user-icon-btn" onclick="handleUserIcon()" style="cursor:pointer;">
-      <i class="fas fa-user" id="user-icon"></i>
-      <span class="sns-tooltip" id="user-tooltip">로그인</span>
-    </div>
-    <div class="sns-box"><i class="fab fa-instagram"></i><span class="sns-tooltip">Instagram</span></div>
-    <div class="sns-box"><i class="fas fa-comment"></i><span class="sns-tooltip">KakaoTalk</span></div>
-    <div class="sns-box"><i class="fab fa-facebook-f"></i><span class="sns-tooltip">Facebook</span></div>
-  </div>
-</nav>
-
-<!-- 모바일 사이드바 -->
-<div class="mobile-sidebar" id="mobileSidebar">
-  <div class="mobile-sidebar-close" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
-  <ul>
-    <li>
-      <a href="#" style="cursor: default;">브랜드</a>
-      <div class="mobile-submenu">
-        <a href="/brand">여운 스토리</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">메뉴</a>
-      <div class="mobile-submenu">
-        <a href="/menu">커피 (Coffee)</a>
-        <a href="/beverage">음료 (Beverage)</a>
-        <a href="/dessert">디저트 (Dessert)</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">온라인 숍</a>
-      <div class="mobile-submenu">
-        <a href="/shop">원두/드립백</a>
-        <a href="/goods">홈카페 굿즈</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">매장안내</a>
-      <div class="mobile-submenu">
-        <a href="/store">매장 찾기</a>
-      </div>
-    </li>
-    <li>
-      <a href="#" style="cursor: default;">고객지원</a>
-      <div class="mobile-submenu">
-        <a href="/notice">공지사항</a>
-        <a href="/inquiry">1:1 문의</a>
-      </div>
-    </li>
-  </ul>
-  <div class="footer-sns-icons" style="margin-top: 40px; justify-content: flex-start;">
-    <a href="#" class="f-icon"><i class="fab fa-instagram"></i></a>
-    <a href="#" class="f-icon"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="f-icon"><i class="fas fa-comment"></i></a>
-  </div>
-</div>
+<%--모바일 사이드바--%>
+<jsp:include page="/common/header.jsp"></jsp:include>
 
 <!-- 페이지 헤더 (타이틀 배너) -->
 <header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1200'); background-position: center;">
@@ -101,7 +33,7 @@
     <h1 data-aos="fade-up">STORE LOCATOR</h1>
     <p data-aos="fade-up" data-aos-delay="100">가까운 여운 매장을 찾아보세요</p>
     <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-      <a href="/index">HOME</a> <i class="fas fa-chevron-right"></i>
+      <a href="/">HOME</a> <i class="fas fa-chevron-right"></i>
       <a href="#">매장안내</a> <i class="fas fa-chevron-right"></i>
       <span>매장 찾기</span>
     </div>
@@ -132,39 +64,223 @@
 
     <!-- 매장 카드 그리드 -->
     <div class="menu-grid">
-      <c:forEach var="store" items="${stores}">
-        <div class="card store-item"
-             data-region="${store.address.contains('서울') ? 'seoul' :
-                       store.address.contains('경기') ? 'gyeonggi' :
-                       store.address.contains('부산') ? 'busan' : 'etc'}"
-             data-aos="fade-up">
-          <div style="padding: 30px;">
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-              <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-                <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
-              </div>
-              <div>
-                <h4 style="font-size: 1.3rem; margin-bottom: 5px;">${store.storeName}</h4>
-                <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">
-                    ${store.address.substring(0, 2)}
-                </span>
-              </div>
+
+      <!-- 매장 1 - 서울 -->
+      <div class="card store-item" data-region="seoul" data-aos="fade-up">
+        <div style="padding: 30px;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+              <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
             </div>
-            <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
-              <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
-                ${store.address}
-            </p>
-            <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
-              <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
-                ${store.phone}
-            </p>
-            <p style="color: #666; line-height: 1.7;">
-              <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
-                ${store.getOTime()}
-            </p>
+            <div>
+              <h4 style="font-size: 1.3rem; margin-bottom: 5px;">강남점</h4>
+              <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">서울</span>
+            </div>
           </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            서울시 강남구 테헤란로 123
+          </p>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            02-1234-5678
+          </p>
+          <p style="color: #666; line-height: 1.7;">
+            <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            평일 07:00 - 22:00
+          </p>
         </div>
-      </c:forEach>
+      </div>
+
+      <!-- 매장 2 - 서울 -->
+      <div class="card store-item" data-region="seoul" data-aos="fade-up" data-aos-delay="50">
+        <div style="padding: 30px;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+              <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.3rem; margin-bottom: 5px;">홍대점</h4>
+              <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">서울</span>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            서울시 마포구 홍익로 45
+          </p>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            02-2345-6789
+          </p>
+          <p style="color: #666; line-height: 1.7;">
+            <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            평일 08:00 - 23:00
+          </p>
+        </div>
+      </div>
+
+      <!-- 매장 3 - 서울 -->
+      <div class="card store-item" data-region="seoul" data-aos="fade-up" data-aos-delay="100">
+        <div style="padding: 30px;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+              <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.3rem; margin-bottom: 5px;">이태원점</h4>
+              <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">서울</span>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            서울시 용산구 이태원로 67
+          </p>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            02-3456-7890
+          </p>
+          <p style="color: #666; line-height: 1.7;">
+            <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            평일 09:00 - 21:00
+          </p>
+        </div>
+      </div>
+
+      <!-- 매장 4 - 경기 -->
+      <div class="card store-item" data-region="gyeonggi" data-aos="fade-up" data-aos-delay="150">
+        <div style="padding: 30px;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+              <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.3rem; margin-bottom: 5px;">판교점</h4>
+              <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">경기</span>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            경기도 성남시 분당구 판교로 89
+          </p>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            031-1234-5678
+          </p>
+          <p style="color: #666; line-height: 1.7;">
+            <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            평일 07:30 - 22:00
+          </p>
+        </div>
+      </div>
+
+      <!-- 매장 5 - 경기 -->
+      <div class="card store-item" data-region="gyeonggi" data-aos="fade-up">
+        <div style="padding: 30px;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+              <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.3rem; margin-bottom: 5px;">수원점</h4>
+              <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">경기</span>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            경기도 수원시 팔달구 권광로 34
+          </p>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            031-2345-6789
+          </p>
+          <p style="color: #666; line-height: 1.7;">
+            <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            평일 08:00 - 21:00
+          </p>
+        </div>
+      </div>
+
+      <!-- 매장 6 - 부산 -->
+      <div class="card store-item" data-region="busan" data-aos="fade-up" data-aos-delay="50">
+        <div style="padding: 30px;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+              <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.3rem; margin-bottom: 5px;">해운대점</h4>
+              <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">부산</span>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            부산시 해운대구 해운대로 56
+          </p>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            051-1234-5678
+          </p>
+          <p style="color: #666; line-height: 1.7;">
+            <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            평일 08:00 - 22:00
+          </p>
+        </div>
+      </div>
+
+      <!-- 매장 7 - 부산 -->
+      <div class="card store-item" data-region="busan" data-aos="fade-up" data-aos-delay="100">
+        <div style="padding: 30px;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+              <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.3rem; margin-bottom: 5px;">서면점</h4>
+              <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">부산</span>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            부산시 부산진구 서면로 78
+          </p>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            051-2345-6789
+          </p>
+          <p style="color: #666; line-height: 1.7;">
+            <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            평일 09:00 - 21:00
+          </p>
+        </div>
+      </div>
+
+      <!-- 매장 8 - 기타 -->
+      <div class="card store-item" data-region="etc" data-aos="fade-up" data-aos-delay="150">
+        <div style="padding: 30px;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="width: 50px; height: 50px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+              <i class="fas fa-store" style="color: white; font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h4 style="font-size: 1.3rem; margin-bottom: 5px;">대구점</h4>
+              <span style="display: inline-block; padding: 3px 10px; background: #f0f0f0; border-radius: 5px; font-size: 0.8rem; color: #666;">대구</span>
+            </div>
+          </div>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            대구시 중구 동성로 123
+          </p>
+          <p style="color: #666; line-height: 1.7; margin-bottom: 15px;">
+            <i class="fas fa-phone" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            053-1234-5678
+          </p>
+          <p style="color: #666; line-height: 1.7;">
+            <i class="fas fa-clock" style="color: var(--accent-gold); margin-right: 8px;"></i>
+            평일 08:30 - 21:30
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -222,12 +338,6 @@
     <div style="background:var(--text-dark); color:#fff; padding:15px; text-align:center; font-weight:700;">SHOPPING BAG</div>
     <div id="cart-items-list"></div>
     <div style="padding:20px; border-top:1px solid #eee;">
-      <div style="margin-bottom:15px;">
-        <label style="display:block; margin-bottom:8px; font-size:0.9rem; color:#666;">
-          <i class="fas fa-phone"></i> 연락처
-        </label>
-        <input type="tel" id="cart-phone" placeholder="010-0000-0000" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:0.95rem;">
-      </div>
       <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:700;"><span>최종 합계</span><span id="total-price-display" style="color:var(--accent-gold);">0원</span></div>
       <button class="btn-order-now" onclick="processOrder()">주문하기</button>
     </div>
@@ -312,32 +422,5 @@
   }
 </script>
 
-
-<!-- 로그인 모달 -->
-<div class="order-modal" id="loginModal">
-  <div class="order-paper" style="max-width:400px; margin:auto;">
-    <div style="text-align:center; margin-bottom:25px;">
-      <div style="width:60px; height:60px; background:var(--accent-gold); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
-        <i class="fas fa-user" style="color:#fff; font-size:1.4rem;"></i>
-      </div>
-      <h3 style="margin:0; font-size:1.3rem; letter-spacing:3px;">LOGIN</h3>
-      <p style="color:#999; font-size:0.85rem; margin-top:8px;">전화번호로 간편하게 로그인하세요</p>
-    </div>
-    <div class="order-form-group">
-      <label><i class="fas fa-phone"></i> 전화번호</label>
-      <input type="tel" class="order-input" id="login-phone" placeholder="010-0000-0000 (숫자만 입력)" maxlength="13" oninput="formatPhoneInput(this)">
-    </div>
-    <button class="btn-final-order" onclick="loginWithPhone()">로그인</button>
-    <p onclick="closeLoginModal()" style="text-align:center; margin-top:15px; font-size:0.8rem; color:#aaa; cursor:pointer; text-decoration:underline;">닫기</p>
-  </div>
-</div>
-
-<!-- 토스트 알림 -->
-<div id="login-toast" style="position:fixed; bottom:40px; left:50%; transform:translateX(-50%) translateY(80px); background:#1a1a1a; color:#fff; padding:14px 28px; border-radius:50px; font-size:0.9rem; z-index:99999; transition:all 0.4s ease; opacity:0; pointer-events:none; white-space:nowrap; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
-  <i class="fas fa-check-circle" style="color:#ddb86e; margin-right:8px;"></i>
-  <span id="login-toast-msg"></span>
-</div>
-
 </body>
 </html>
-
