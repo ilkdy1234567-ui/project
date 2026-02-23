@@ -86,7 +86,7 @@
       <a href="#" style="cursor: default;">고객지원</a>
       <div class="mobile-submenu">
         <a href="/notice">공지사항</a>
-        <a href="/contact">1:1 문의</a>
+        <a href="/inquiry">1:1 문의</a>
       </div>
     </li>
   </ul>
