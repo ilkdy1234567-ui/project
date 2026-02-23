@@ -16,7 +16,7 @@
         <li class="nav-item"><a href="#">메뉴</a><div class="dropdown"><a href="${pageContext.request.contextPath}/menu">커피 (Coffee)</a><a href="${pageContext.request.contextPath}/beverage">음료 (Beverage)</a><a href="${pageContext.request.contextPath}/dessert">디저트 (Dessert)</a></div></li>
         <li class="nav-item"><a href="#">온라인 숍</a><div class="dropdown"><a href="${pageContext.request.contextPath}/shop">원두/드립백</a><a href="${pageContext.request.contextPath}/goods">홈카페 굿즈</a></div></li>
         <li class="nav-item"><a href="#">매장안내</a><div class="dropdown"><a href="${pageContext.request.contextPath}/store">매장 찾기</a></div></li>
-        <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="${pageContext.request.contextPath}/notice">공지사항</a><a href="${pageContext.request.contextPath}/contact">1:1 문의</a></div></li>
+        <li class="nav-item"><a href="#">고객지원</a><div class="dropdown"><a href="${pageContext.request.contextPath}/notice">공지사항</a><a href="${pageContext.request.contextPath}/inquiry">1:1 문의</a></div></li>
     </ul>
 
     <a href="/" class="logo">YEOWUN<span>餘韻</span></a>
@@ -56,7 +56,7 @@
 
             <div class="mobile-submenu">
                 <a href="${pageContext.request.contextPath}/notice">공지사항</a>
-                <a href="${pageContext.request.contextPath}/contact">1:1 문의</a>
+                <a href="${pageContext.request.contextPath}/inquiry">1:1 문의</a>
             </div>
         </li>
     </ul>
