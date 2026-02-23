@@ -33,7 +33,7 @@
         <h1 data-aos="fade-up">CONTACT US</h1>
         <p data-aos="fade-up" data-aos-delay="100">궁금하신 사항을 문의해주세요</p>
         <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-            <a href="./index">HOME</a> <i class="fas fa-chevron-right"></i>
+            <a href="/index">HOME</a> <i class="fas fa-chevron-right"></i>
             <a href="#">고객지원</a> <i class="fas fa-chevron-right"></i>
             <span>1:1 문의</span>
         </div>
@@ -331,3 +331,27 @@
             content.style.display = 'block';
         }
     }
+    // 문의 폼 제출 처리
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // 기본 제출 동작 막기
+
+        // 간단한 유효성 검사
+        const type = document.getElementById('contact-type').value;
+        const content = document.getElementById('contact-content').value;
+
+        if(!type || !content) {
+            alert('문의 유형과 내용을 모두 입력해주세요.');
+            return;
+        }
+
+        // 작성 로직 (컨트롤러의 /inquiry/write로 보냄)
+        this.action = "/inquiry/write";
+        this.method = "POST";
+        this.submit();
+    });
+
+    function closeContactModal() {
+        document.getElementById('contactModal').style.display = 'none';
+        location.href = "/inquiry"; // 확인 후 목록으로 이동
+    }
+    <script/>
