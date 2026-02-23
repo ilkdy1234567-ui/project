@@ -3,7 +3,13 @@
 
 <mapper namespace="com.simplecoding.projectcoffee.store.mapper.StoreMapper">
     <select id="selectStoreList" resultType="com.simplecoding.projectcoffee.store.vo.Store">
-        SELECT STORE_ID, STORE_NAME, ADDRESS, PHONE, O_TIME, C_DATE
+        SELECT
+            STORE_ID   AS storeId,
+            STORE_NAME AS storeName,
+            ADDRESS    AS address,
+            PHONE      AS phone,
+            O_TIME     AS oTime,
+            C_DATE     AS cDate
         FROM STORE
     </select>
 </mapper>
