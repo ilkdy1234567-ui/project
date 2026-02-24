@@ -52,9 +52,9 @@
     <!-- 카테고리 필터 -->
     <div class="menu-filter" data-aos="fade-up">
       <button class="filter-btn active" onclick="filterMenu('all')">전체</button>
-      <button class="filter-btn" onclick="filterMenu('ethiopia')">에티오피아</button>
-      <button class="filter-btn" onclick="filterMenu('colombia')">콜롬비아</button>
-      <button class="filter-btn" onclick="filterMenu('brazil')">브라질</button>
+      <button class="filter-btn" onclick="filterMenu('beans')">원두</button>
+      <button class="filter-btn" onclick="filterMenu('dripbag')">드립백</button>
+
     </div>
 
     <!-- 원두 상품 그리드 (3x4 = 12개) -->
