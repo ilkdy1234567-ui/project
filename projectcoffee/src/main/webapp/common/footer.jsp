@@ -28,7 +28,7 @@
             <ul class="footer-bottom-col">
                 <li><a href="/brand">브랜드 스토리</a></li>
                 <li><a href="/store">매장 안내</a></li>
-                <li><a href="/index">원두 이야기</a></li>
+                <li><a href="/">원두 이야기</a></li>
                 <li><a href="/notice">채용 공고</a></li>
             </ul>
         </div>
