@@ -50,9 +50,6 @@
     <!-- 카테고리 필터 -->
     <div class="menu-filter" data-aos="fade-up">
       <button class="filter-btn active" onclick="filterMenu('all')">전체</button>
-      <button class="filter-btn" onclick="filterMenu('mug')">머그컵</button>
-      <button class="filter-btn" onclick="filterMenu('tumbler')">텀블러</button>
-      <button class="filter-btn" onclick="filterMenu('tool')">드리퍼/도구</button>
     </div>
 
     <!-- 굿즈 상품 그리드 (10개) -->
