@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -36,15 +37,15 @@ public class InquiryController {
     }
 
     // 문의글 작성 처리
-    @PostMapping("/write")
-    public String write(Inquiry inquiry, HttpSession session) {
+    @PostMapping("/submit")
+    @ResponseBody // 리턴하는 문자열을 페이지 이름이 아닌 데이터로 인식하게 함
+    public String submit(Inquiry inquiry, HttpSession session) {
         String cuNumber = (String) session.getAttribute("cuNumber");
-        if (cuNumber == null) return "redirect:/";
+        if (cuNumber == null) return "fail";
 
-        // 작성자 번호 세팅 후 저장
         inquiry.setCuNumber(cuNumber);
         inquiryService.createInquiry(inquiry);
 
-        return "redirect:/inquiry";
+        return "success"; // AJAX의 success 함수로 전달될 문자열
     }
 }

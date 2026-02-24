@@ -78,14 +78,14 @@
                         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
                             <i class="fas fa-list" style="color: var(--accent-gold); margin-right: 5px;"></i> 문의 유형
                         </label>
-                        <select id="contact-type" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                        <select id="contact-type" name="title" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
                             <option value="">문의 유형을 선택하세요</option>
-                            <option>상품 문의</option>
-                            <option>배송 문의</option>
-                            <option>주문/결제 문의</option>
-                            <option>매장 문의</option>
-                            <option>제휴/제안</option>
-                            <option>기타</option>
+                            <option value="상품 문의">상품 문의</option>
+                            <option value="배송 문의">배송 문의</option>
+                            <option value="주문/결제 문의">주문/결제 문의</option>
+                            <option value="매장 문의">매장 문의</option>
+                            <option value="제휴/제안">제휴/제안</option>
+                            <option value="기타">기타</option>
                         </select>
                     </div>
 
@@ -93,7 +93,7 @@
                         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
                             <i class="fas fa-comment-dots" style="color: var(--accent-gold); margin-right: 5px;"></i> 문의 내용
                         </label>
-                        <textarea id="contact-content" placeholder="문의 내용을 상세히 입력해주세요" rows="8" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; resize: vertical;"></textarea>
+                        <textarea id="contact-content" name="cont" placeholder="문의 내용을 상세히 입력해주세요" rows="8" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; resize: vertical;"></textarea>
                     </div>
 
                     <button type="submit" style="width: 100%; padding: 18px; background: var(--accent-gold); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 10px;">
@@ -327,11 +327,52 @@
 
 <!-- FAQ 토글 스크립트 -->
 <script>
+    $(document).ready(function() {
+        // [1] 문의하기 버튼 클릭 시 실행 (AJAX 전송)
+        $('#contactForm').on('submit', function(e) {
+            e.preventDefault(); // 페이지 새로고침 방지
+
+            // 서버로 보낼 데이터 묶기
+            const formData = {
+                title: $('#contact-type').val(),    // 문의 유형 (name="title"과 매칭)
+                cont: $('#contact-content').val()  // 문의 내용 (name="cont"과 매칭)
+            };
+
+            // 유효성 검사
+            if(!formData.title) { alert('문의 유형을 선택해주세요.'); return; }
+            if(!formData.cont) { alert('문의 내용을 입력해주세요.'); return; }
+
+            // 서버와 통신 (배달 시작)
+            $.ajax({
+                url: '/inquiry/submit', // 컨트롤러의 @PostMapping("/submit") 경로
+                type: 'POST',
+                data: formData,
+                success: function(res) {
+                    // 성공 시 "문의 완료" 모달 띄우기
+                    $('#contactModal').css('display', 'flex');
+                    // 입력창 초기화
+                    $('#contactForm')[0].reset();
+                },
+                error: function() {
+                    alert('서버 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+                }
+            });
+        });
+    });
+
+    // [2] FAQ 토글 기능 (열고 닫기 개선)
     function toggleFaq(element) {
         const content = element.querySelector('.faq-content');
-        const icon = element.querySelector('i.fa-chevron-down');
+        const isVisible = content.style.display === 'block';
 
-        if (content.style.display === 'none' || content.style.display === '') {
-            content.style.display = 'block';
-        }
+        // 클릭할 때마다 반대로 (보이면 숨기고, 안보이면 보이고)
+        content.style.display = isVisible ? 'none' : 'block';
     }
+
+    // [3] 문의 완료 모달 닫기 버튼 함수
+    function closeContactModal() {
+        $('#contactModal').css('display', 'none');
+        // 선택사항: 확인 누르면 목록 페이지로 이동하고 싶을 때 아래 주석 해제
+         location.href = "/inquiry";
+    }
+</script>
