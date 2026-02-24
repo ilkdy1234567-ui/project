@@ -175,52 +175,7 @@
 </section>
 
 <!-- 푸터 -->
-<footer class="main-footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="#" class="footer-logo">YEOWUN <span>餘韻</span></a>
-      <p class="footer-slogan">한 잔의 커피, 그 이상의 깊은 여운을 남깁니다.<br>예멘 고산지대의 순수함을 당신의 일상에 전합니다.</p>
-      <div class="footer-sns-icons">
-        <a href="#" class="f-icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="f-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="f-icon"><i class="fas fa-comment"></i></a>
-        <a href="#" class="f-icon"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-    <div class="footer-info-col">
-      <h5>ABOUT</h5>
-      <ul>
-        <li>브랜드 스토리</li>
-        <li>매장 안내</li>
-        <li>원두 이야기</li>
-        <li>채용 공고</li>
-      </ul>
-    </div>
-    <div class="footer-info-col">
-      <h5>SUPPORT</h5>
-      <ul>
-        <li>고객센터</li>
-        <li>자주 묻는 질문</li>
-        <li>1:1 문의</li>
-        <li>대량 주문/납품 안내</li>
-      </ul>
-    </div>
-    <div class="footer-info-col">
-      <h5>CONTACT US</h5>
-      <p style="font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;">02-123-4567</p>
-      <p style="font-size: 0.85rem; color: #888;">평일 09:00 - 18:00 (주말/공휴일 휴무)<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="beddd1d0cadfddcafec7dbd1c9cbd090ddd1d3">[email&#160;protected]</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="company-details">
-      (주)여운컴퍼니 | 대표자: 홍길동 | 사업자등록번호: 123-45-67890<br>
-      서울특별시 강남구 테헤란로 123 여운빌딩 12층 | 통신판매업신고: 제2026-서울강남-0000호<br>
-      <span style="margin-top: 10px; display: inline-block;">&copy; 2026 YEOWUN COFFEE. ALL RIGHTS RESERVED.</span>
-    </div>
-    <p style="font-size: 0.75rem; color: #aaa;">이용약관 | <strong>개인정보처리방침</strong> | 스팸거부정책</p>
-  </div>
-</footer>
-
+<jsp:include page="/common/footer.jsp"></jsp:include>
 <!-- 플로팅 버튼 (장바구니 & TOP) -->
 <form id="addForm" name="addForm" method="post" target="cartHiddenFrame">
 <div id="floating-btns">
@@ -279,5 +234,6 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="../js/script.js"></script>
 
+</form>
 </body>
 </html>
