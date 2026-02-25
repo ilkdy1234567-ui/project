@@ -5,6 +5,7 @@ import com.simplecoding.projectcoffee.customer.vo.Customer;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,7 +48,7 @@ public class CustomerController {
     /**
      * 고객 퇴장 (세션 삭제)
      */
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // 서버가 기억하는 번호 삭제
         return "redirect:/"; // 첫 화면으로 이동
