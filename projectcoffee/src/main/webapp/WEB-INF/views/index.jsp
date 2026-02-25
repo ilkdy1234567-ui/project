@@ -32,11 +32,11 @@
 <header class="hero">
   <div class="swiper mainSwiper main-slider">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" style="background-image:url('/img/main1.jpg')"></div>
-      <div class="swiper-slide" style="background-image:url('/img/main2.jpg')"></div>
-      <div class="swiper-slide" style="background-image:url('/img/main3.jpg')"></div>
-      <div class="swiper-slide" style="background-image:url('/img/main4.jpg')"></div>
-      <div class="swiper-slide" style="background-image:url('/img/main5.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('/img/원본/main1.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('/img/원본/main2.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('/img/원본/main3.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('/img/원본/main4.jpg')"></div>
+      <div class="swiper-slide" style="background-image:url('/img/원본/main5.jpg')"></div>
     </div>
     <div class="swiper-pagination"></div>
   </div>
