@@ -101,7 +101,7 @@
     </div>
   </div>
   <div class="float-item cart-btn" onclick="toggleDashboard()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cart-count">0</span></div>
-  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTop({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+  <div class="float-item top-btn" id="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
 </div>
 </form>
 <!-- 주문서 모달 -->
