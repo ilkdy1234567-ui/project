@@ -229,7 +229,12 @@
 
         <div class="order-form-group">
             <label><i class="fas fa-phone"></i> 연락처</label>
-            <input type="text" class="order-input" id="order-phone" placeholder="010-0000-0000 (숫자만 입력)">
+            <input type="text"
+                   class="order-input"
+                   id="order-phone"
+                   name="cuNumber"
+                   value="${sessionScope.cuNumber}"
+                   placeholder="010-0000-0000 (숫자만 입력)">
         </div>
         <div class="order-form-group">
             <label><i class="fas fa-clock"></i> 픽업 예정 시간</label>
