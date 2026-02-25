@@ -312,7 +312,7 @@ body { background-color: var(--bg-cream); color: var(--text-dark); font-family: 
 /* ==================== 페이지 헤더 (서브페이지용) - 수정됨 ==================== */
 .page-header {
     background: linear-gradient(135deg, rgba(192, 169, 122, 0.85), rgba(26, 26, 26, 0.8)),
-    url('../img/main1.jpg') center/cover;
+    url('../img/원본/main1.jpg') center/cover;
     height: 50vh;
     display: flex;
     align-items: center;
