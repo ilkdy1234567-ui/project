@@ -179,10 +179,15 @@
       <label><i class="fas fa-shopping-cart"></i> 주문 메뉴</label>
       <div id="order-menu-list" style="background: #f8f5f0; padding: 15px; border-radius: 10px; max-height: 150px; overflow-y: auto; font-size: 0.9rem;"></div>
     </div>
-
+<%--로그인 할 때 사용한 전화번호를 그대로 입력--%>
     <div class="order-form-group">
       <label><i class="fas fa-phone"></i> 연락처</label>
-      <input type="text" class="order-input" id="order-phone" placeholder="010-0000-0000 (숫자만 입력)">
+      <input type="text"
+             class="order-input"
+             id="order-phone"
+             name="cuNumber"
+             value="${sessionScope.cuNumber}"
+             placeholder="010-0000-0000 (숫자만 입력)">
     </div>
     <div class="order-form-group">
       <label><i class="fas fa-clock"></i> 픽업 예정 시간</label>
