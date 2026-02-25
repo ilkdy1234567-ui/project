@@ -36,8 +36,7 @@
     <h1 data-aos="fade-up">BEVERAGE MENU</h1>
     <p data-aos="fade-up" data-aos-delay="100">신선한 과일로 만든 상큼한 음료를 즐겨보세요</p>
     <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-      <a href="${pageContext.request.contextPath}/">HOME</a>
-      <i class="fas fa-chevron-right"></i>
+      <a href="/">HOME</a> <i class="fas fa-chevron-right"></i>
       <a href="#">메뉴</a> <i class="fas fa-chevron-right"></i>
       <span>음료</span>
     </div>

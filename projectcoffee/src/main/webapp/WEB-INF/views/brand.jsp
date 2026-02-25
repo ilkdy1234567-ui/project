@@ -34,7 +34,7 @@
     <h1 data-aos="fade-up">BRAND STORY</h1>
     <p data-aos="fade-up" data-aos-delay="100">여운, 한 잔의 커피에 담긴 깊은 이야기</p>
     <div class="breadcrumb" data-aos="fade-up" data-aos-delay="200">
-      <a href="/index">HOME</a> <i class="fas fa-chevron-right"></i>
+      <a href="/">HOME</a> <i class="fas fa-chevron-right"></i>
       <a href="#">브랜드</a> <i class="fas fa-chevron-right"></i>
       <span>여운 스토리</span>
     </div>
