@@ -54,7 +54,7 @@
 
     <!-- 굿즈 상품 그리드 (10개) -->
     <div class="menu-grid">
-
+      <%-- 상품 이름, 서브타이틀, 설명, 가격을 db데이터에서 가져와서 표시 반복문 사용으로 많은 메뉴들을 한개의 코딩으로 모두 표시--%>
       <c:forEach var="item" items="${list}">
         <div class="card menu-item" data-category="${item.subCategory}" data-aos="fade-up">
 

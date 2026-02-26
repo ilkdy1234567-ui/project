@@ -10,6 +10,7 @@ function toggleSidebar() {
 }
 
 // ==================== 장바구니에 상품 추가 (담기 버튼 클릭 시 장바구니 바로 열기) ====================
+//                       1.onclick="addToCart(담기)버튼을 누르면 장바구니로 감
 function addToCart(pUuid, name, price) {
 
     const found = cart.find(item => item.pUuid === pUuid);

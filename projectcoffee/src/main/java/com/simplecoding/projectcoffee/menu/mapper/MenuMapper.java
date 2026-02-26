@@ -11,12 +11,12 @@ import java.util.List;
 
 public interface MenuMapper {
 
-        List<Menu> selectMenuList(Criteria criteria);
-        List<Menu> selectMenuByCategory(int categoryId);//전체조회
+        List<Menu> selectMenuList(Criteria criteria); //메뉴 전체조회
+        List<Menu> selectMenuByCategory(int categoryId);// 카체고리별로 상세조회
         List<Menu> selectMenuByCategoryAndSub(@Param("categoryId") int categoryId,
                                               @Param("subCategory") String subCategory);
-        List<Menu> selectMainMenu();
-        List<Menu> selectMainGoods();
+        List<Menu> selectMainMenu(); //메인화면에 메뉴 조회
+        List<Menu> selectMainGoods(); //메인화면에 굿즈 조회
 
 
 }
